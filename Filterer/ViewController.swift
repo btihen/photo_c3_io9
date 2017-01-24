@@ -326,8 +326,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         dismissViewControllerAnimated(true, completion: nil)
         if let newImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            filteredImage = nil
             originalImage = newImage
             imageView.image = newImage
+            compareButton.enabled = false
         }
     }
     
