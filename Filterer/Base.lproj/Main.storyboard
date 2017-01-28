@@ -285,11 +285,14 @@
                             <constraint firstItem="SJZ-1H-fsm" firstAttribute="centerY" secondItem="pMg-6o-Kfc" secondAttribute="centerY" id="y49-bV-Kou"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Story" id="q8D-5K-YKH"/>
+                    <navigationItem key="navigationItem" title="Story" id="q8D-5K-YKH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="YfJ-03-8KF"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="7kF-xJ-XzJ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02h-9e-lbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774" y="329"/>
+            <point key="canvasLocation" x="1729" y="329"/>
         </scene>
         <!--Details-->
         <scene sceneID="T0z-R9-L1S">
@@ -308,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAA-Am-uE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447" y="330"/>
+            <point key="canvasLocation" x="2404" y="329"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nlN-Uz-dfZ">
@@ -326,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwA-Np-6tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109" y="330"/>
+            <point key="canvasLocation" x="1058" y="329"/>
         </scene>
     </scenes>
     <resources>
