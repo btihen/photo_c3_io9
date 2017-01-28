@@ -98,7 +98,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="YMC-kW-b0N"/>
                                                 </constraints>
-                                                <state key="normal" title="Story"/>
+                                                <state key="normal" title="Details"/>
                                                 <connections>
                                                     <segue destination="Tfv-j1-PgB" kind="presentation" identifier="presetStory" id="xpw-Xj-1Tp"/>
                                                 </connections>
@@ -336,7 +336,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="I0t-ox-3u8"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="Share" systemItem="bookmarks" id="I0t-ox-3u8"/>
                     <navigationItem key="navigationItem" title="Title" id="ImK-jW-gCh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10O-sG-vWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
