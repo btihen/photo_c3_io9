@@ -107,32 +107,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // trick is to make sure the image view can see gestures!
     @IBAction func onImagePress(sender: AnyObject) {
         // print("Long tap")
-        if sender.state == .Ended {
-            //print("touches ended view")
-            if filteredImage == nil {
-                imageView.image = originalImage
-            } else {
-                hideTopLabel()
-                let toImage = filteredImage
+        if compareButton.enabled == true {
+            if sender.state == .Ended {
+                //print("touches ended view")
+                if filteredImage == nil {
+                    imageView.image = originalImage
+                } else {
+                    hideTopLabel()
+                    let toImage = filteredImage
+                    UIView.transitionWithView(self.imageView,
+                                              duration:0.5,
+                                              options: UIViewAnimationOptions.TransitionCrossDissolve,
+                                              animations: { self.imageView.image = toImage },
+                                              completion: nil)
+                    imageView.image = filteredImage
+                }
+            }
+            else if sender.state == .Began {
+                // print("touches began view")
+                showTopLabel()
+                let toImage = originalImage
                 UIView.transitionWithView(self.imageView,
                                           duration:0.5,
                                           options: UIViewAnimationOptions.TransitionCrossDissolve,
                                           animations: { self.imageView.image = toImage },
                                           completion: nil)
-                imageView.image = filteredImage
-            }
-        }
-        else if sender.state == .Began {
-            // print("touches began view")
-            showTopLabel()
-            let toImage = originalImage
-            UIView.transitionWithView(self.imageView,
-                                      duration:0.5,
-                                      options: UIViewAnimationOptions.TransitionCrossDissolve,
-                                      animations: { self.imageView.image = toImage },
-                                      completion: nil)
 
-            imageView.image = originalImage
+                imageView.image = originalImage
+            }
         }
     }
     // doing touches by hand - just experimenting
@@ -204,8 +206,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if lightenButton.selected {
             lightenButton.selected = false
             imageView.image = originalImage
-            // if no other compare buttons are selected
             compareButton.enabled = false
+            filteredImage = nil
             hideSliderMenu()
         } else {
             lightenButton.selected  = true
@@ -224,8 +226,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if darkenButton.selected {
             darkenButton.selected = false
             imageView.image = originalImage
-            // if no other compare buttons are selected
             compareButton.enabled = false
+            filteredImage = nil
             hideSliderMenu()
         } else {
             lightenButton.selected  = false
@@ -244,8 +246,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if contrastButton.selected {
             contrastButton.selected = false
             imageView.image = originalImage
-            // if no other compare buttons are selected
             compareButton.enabled = false
+            filteredImage = nil
             hideSliderMenu()
         } else {
             lightenButton.selected  = false
@@ -264,6 +266,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if greyButton.selected {
             greyButton.selected = false
             imageView.image = originalImage
+            compareButton.enabled = false
+            filteredImage = nil
             hideSliderMenu()
         } else {
             lightenButton.selected  = false
@@ -282,6 +286,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if bwButton.selected {
             bwButton.selected = false
             imageView.image = originalImage
+            compareButton.enabled = false
+            filteredImage = nil
             hideSliderMenu()
         } else {
             lightenButton.selected  = false
