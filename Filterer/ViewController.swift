@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     
     var sliderValue: Int?
 
     var filteredImage: UIImage?
     var originalImage: UIImage?
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var imagePressGesture: UILongPressGestureRecognizer!
+    @IBOutlet var zoomTapGesture: UITapGestureRecognizer!
     
     @IBOutlet var topLabel: UIView!
     @IBOutlet var sliderMenu: UIView!
@@ -50,6 +52,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         greyButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         bwButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         
+        zoomTapGesture.numberOfTapsRequired = 2
+        
         // on app load - create an original image
         originalImage = UIImage( named: "landscape" )!
         // load original image into display
@@ -58,6 +62,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         compareButton.enabled = false
     }
     
+    @IBAction func onZoomTaps(sender: UITapGestureRecognizer) {
+        // print("double tap")
+        UIView.animateWithDuration(0.3) { () -> Void in
+            self.scrollView.zoomScale = 2 * self.scrollView.zoomScale
+        }
+    }
     
     // http://stackoverflow.com/questions/7638831/fade-dissolve-when-changing-uiimageviews-image
     @IBAction func endCompare(sender: UIButton) {
@@ -429,4 +439,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
 }
