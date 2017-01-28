@@ -287,7 +287,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Story" id="q8D-5K-YKH">
                         <barButtonItem key="backBarButtonItem" title="Back" id="YfJ-03-8KF"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="7kF-xJ-XzJ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="7kF-xJ-XzJ">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="Oe5-JB-ilD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02h-9e-lbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
