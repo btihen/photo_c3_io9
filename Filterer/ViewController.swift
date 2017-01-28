@@ -51,7 +51,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bwButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         
         // on app load - create an original image
-        originalImage = UIImage( named: "scenery" )!
+        originalImage = UIImage( named: "landscape" )!
         // load original image into display
         imageView.image = originalImage
         // on app load - disable compare button since there is no filtered image yet
