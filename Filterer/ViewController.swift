@@ -36,10 +36,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         secondaryMenu.translatesAutoresizingMaskIntoConstraints = false
-        sliderMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+        sliderMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         sliderMenu.translatesAutoresizingMaskIntoConstraints = false
         topLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         topLabel.translatesAutoresizingMaskIntoConstraints=false
+        
+        lightenButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
+        darkenButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
+        contrastButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
+        greyButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
+        bwButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         
         // on app load - create an original image
         originalImage = UIImage( named: "scenery" )!
@@ -199,12 +205,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             compareButton.enabled = false
             hideSliderMenu()
         } else {
-            lightenButton.selected    = true
-            darkenButton.selected  = false
-            contrastButton.selected   = false
-            greyButton.selected   = false
-            bwButton.selected     = false
-            compareButton.enabled = true
+            lightenButton.selected  = true
+            darkenButton.selected   = false
+            contrastButton.selected = false
+            greyButton.selected     = false
+            bwButton.selected       = false
+            compareButton.enabled   = true
             filteredImage = LightenFilter(percentage: 75).filter( originalImage! )
             showSliderMenu()
             imageView.image = filteredImage
@@ -218,12 +224,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // if no other compare buttons are selected
             compareButton.enabled = false
         } else {
-            lightenButton.selected    = false
-            darkenButton.selected  = true
-            contrastButton.selected   = false
-            greyButton.selected   = false
-            bwButton.selected     = false
-            compareButton.enabled = true
+            lightenButton.selected  = false
+            darkenButton.selected   = true
+            contrastButton.selected = false
+            greyButton.selected     = false
+            bwButton.selected       = false
+            compareButton.enabled   = true
             filteredImage = DarkenFilter(percentage: 75).filter( originalImage! )
             showSliderMenu()
             imageView.image = filteredImage
@@ -237,12 +243,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // if no other compare buttons are selected
             compareButton.enabled = false
         } else {
-            lightenButton.selected    = false
-            darkenButton.selected  = false
-            contrastButton.selected   = true
-            greyButton.selected   = false
-            bwButton.selected     = false
-            compareButton.enabled = true
+            lightenButton.selected  = false
+            darkenButton.selected   = false
+            contrastButton.selected = true
+            greyButton.selected     = false
+            bwButton.selected       = false
+            compareButton.enabled   = true
             filteredImage = ContrastFilter(percentage: 75).filter( originalImage! )
             showSliderMenu()
             imageView.image = filteredImage
@@ -254,12 +260,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             greyButton.selected = false
             imageView.image = originalImage
         } else {
-            lightenButton.selected    = false
-            darkenButton.selected  = false
-            contrastButton.selected   = false
-            greyButton.selected   = true
-            bwButton.selected     = false
-            compareButton.enabled = true
+            lightenButton.selected  = false
+            darkenButton.selected   = false
+            contrastButton.selected = false
+            greyButton.selected     = true
+            bwButton.selected       = false
+            compareButton.enabled   = true
             filteredImage = GreyFilter(percentage: 75).filter( originalImage! )
             showSliderMenu()
             imageView.image = filteredImage
@@ -271,12 +277,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bwButton.selected = false
             imageView.image = originalImage
         } else {
-            lightenButton.selected    = false
-            darkenButton.selected  = false
-            contrastButton.selected   = false
-            greyButton.selected   = false
-            bwButton.selected     = true
-            compareButton.enabled = true
+            lightenButton.selected  = false
+            darkenButton.selected   = false
+            contrastButton.selected = false
+            greyButton.selected     = false
+            bwButton.selected       = true
+            compareButton.enabled   = true
             filteredImage = BnWFilter(percentage: 75).filter( originalImage! )
             showSliderMenu()
             imageView.image = filteredImage
@@ -404,6 +410,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.secondaryMenu.removeFromSuperview()
                 }
         }
+        // hideSliderMenu()
     }
 
 }
