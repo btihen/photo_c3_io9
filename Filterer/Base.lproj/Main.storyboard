@@ -98,7 +98,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="YMC-kW-b0N"/>
                                                 </constraints>
-                                                <state key="normal" title="Details"/>
+                                                <state key="normal" title="Feed"/>
                                                 <connections>
                                                     <segue destination="Tfv-j1-PgB" kind="presentation" identifier="presetStory" id="xpw-Xj-1Tp"/>
                                                 </connections>
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="388" y="329"/>
         </scene>
-        <!--Story-->
+        <!--Search-->
         <scene sceneID="3g2-nD-P9Q">
             <objects>
-                <viewController title="Story" id="Ng6-8A-hZk" sceneMemberID="viewController">
+                <viewController title="Search" id="Ng6-8A-hZk" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ifW-dw-M4a"/>
                         <viewControllerLayoutGuide type="bottom" id="pwC-8G-FD7"/>
@@ -271,9 +271,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJZ-1H-fsm">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJZ-1H-fsm">
                                 <rect key="frame" x="277" y="285" width="47" height="30"/>
-                                <state key="normal" title="Details"/>
+                                <state key="normal" title="Find"/>
                                 <connections>
                                     <segue destination="WKW-Bu-09C" kind="show" id="nHE-4X-Bfp"/>
                                 </connections>
@@ -285,7 +285,7 @@
                             <constraint firstItem="SJZ-1H-fsm" firstAttribute="centerY" secondItem="pMg-6o-Kfc" secondAttribute="centerY" id="y49-bV-Kou"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Story" id="q8D-5K-YKH">
+                    <navigationItem key="navigationItem" title="Find Flicker Photos" id="q8D-5K-YKH">
                         <barButtonItem key="backBarButtonItem" title="Back" id="YfJ-03-8KF"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="7kF-xJ-XzJ">
                             <connections>
@@ -313,7 +313,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J10-uZ-1vy">
                                 <rect key="frame" x="0.0" y="25" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Info" id="fgp-iI-JB1">
+                                    <navigationItem title="Photo Meta Data" id="fgp-iI-JB1">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="CsZ-nw-ROE">
                                             <connections>
                                                 <segue destination="BYZ-38-t0r" kind="presentation" id="jz9-PB-VhZ"/>
@@ -341,12 +341,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10O-sG-vWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="1053"/>
+            <point key="canvasLocation" x="388" y="1105"/>
         </scene>
-        <!--Details-->
+        <!--Found-->
         <scene sceneID="T0z-R9-L1S">
             <objects>
-                <viewController title="Details" id="WKW-Bu-09C" sceneMemberID="viewController">
+                <viewController title="Found" id="WKW-Bu-09C" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="if0-42-8Sp"/>
                         <viewControllerLayoutGuide type="bottom" id="rOB-LQ-Z67"/>
@@ -356,7 +356,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" id="DQT-n7-3ro"/>
+                    <navigationItem key="navigationItem" title="Flicker Photos Found" id="DQT-n7-3ro"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAA-Am-uE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -413,6 +413,6 @@
         <image name="landscape" width="1280" height="853"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jz9-PB-VhZ"/>
+        <segue reference="Oe5-JB-ilD"/>
     </inferredMetricsTieBreakers>
 </document>
