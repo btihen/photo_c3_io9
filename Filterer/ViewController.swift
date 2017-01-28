@@ -62,6 +62,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         compareButton.enabled = false
     }
     
+    // override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //    if segue.identifier == "presentStory" {
+    //        let destination = segue.destinationViewController
+    //        destination
+    //    }
+    // }
+    
     @IBAction func onZoomTaps(sender: UITapGestureRecognizer) {
         // print("double tap")
         UIView.animateWithDuration(0.3) { () -> Void in
