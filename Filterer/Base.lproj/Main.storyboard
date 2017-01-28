@@ -31,7 +31,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mAB-Ff-DGi">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPg-yq-mNp">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPg-yq-mNp">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -48,9 +48,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="9TF-bC-3of"/>
                                                 </constraints>
-                                                <state key="normal" image="Filter">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <state key="normal" image="Filter"/>
                                                 <connections>
                                                     <action selector="onFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bde-Ke-RWf"/>
                                                 </connections>
@@ -152,7 +150,7 @@
                                         <action selector="onContrastFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LNW-Ut-bo0"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-ef-bpc">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-ef-bpc">
                                     <rect key="frame" x="144" y="0.0" width="48" height="128"/>
                                     <state key="normal" title="Grey" image="ic_tonality">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

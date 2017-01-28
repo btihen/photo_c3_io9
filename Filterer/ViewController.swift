@@ -41,6 +41,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         topLabel.translatesAutoresizingMaskIntoConstraints=false
         
+        filterButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
+        compareButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
+        
         lightenButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         darkenButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         contrastButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
@@ -223,6 +226,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imageView.image = originalImage
             // if no other compare buttons are selected
             compareButton.enabled = false
+            hideSliderMenu()
         } else {
             lightenButton.selected  = false
             darkenButton.selected   = true
@@ -242,6 +246,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imageView.image = originalImage
             // if no other compare buttons are selected
             compareButton.enabled = false
+            hideSliderMenu()
         } else {
             lightenButton.selected  = false
             darkenButton.selected   = false
@@ -259,6 +264,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if greyButton.selected {
             greyButton.selected = false
             imageView.image = originalImage
+            hideSliderMenu()
         } else {
             lightenButton.selected  = false
             darkenButton.selected   = false
@@ -276,6 +282,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if bwButton.selected {
             bwButton.selected = false
             imageView.image = originalImage
+            hideSliderMenu()
         } else {
             lightenButton.selected  = false
             darkenButton.selected   = false
@@ -374,7 +381,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func hideSliderMenu() {
-        UIView.animateWithDuration(0.4, animations: {
+        UIView.animateWithDuration(0.3, animations: {
             self.sliderMenu.alpha = 0
         }) { completed in
             if completed == true {
