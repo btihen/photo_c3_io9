@@ -400,9 +400,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIView.animateWithDuration(0.4) {
             self.secondaryMenu.alpha = 1.0
         }
+        if compareButton.enabled == true {
+            showSliderMenu()
+        }
     }
 
     func hideSecondaryMenu() {
+        hideSliderMenu()
         UIView.animateWithDuration(0.4, animations: {
             self.secondaryMenu.alpha = 0
             }) { completed in
@@ -410,7 +414,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.secondaryMenu.removeFromSuperview()
                 }
         }
-        // hideSliderMenu()
     }
 
 }
