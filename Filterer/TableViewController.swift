@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,23 +50,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         "aqua"
     ]
 
+    let links = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
+    
     // DATA METHODS
     // how many rows needed
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filters.count
+        return links.count
     }
     
     // keeps track of which cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath )
+        let cell = tableView.dequeueReusableCellWithIdentifier("LinkCell", forIndexPath: indexPath )
         // populate cell
-        cell.textLabel?.text = filters[indexPath.row]
+        cell.textLabel?.text = links[indexPath.row]
         return cell
     }
     
     // delegate methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(filters[indexPath.row])
+        print(links[indexPath.row])
     }
     
 }

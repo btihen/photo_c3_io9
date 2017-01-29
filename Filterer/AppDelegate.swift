@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         NSUserDefaults.standardUserDefaults().registerDefaults(["PhotoURLString": "https://api.flickr.com/services/feeds/photos_public.gne?tags=lake&format=json&nojsoncallback=1"])
+        //var appDefaults = Dictionary<String, AnyObject>()
+        //appDefaults["Favorite"] = "lake"
+        //NSUserDefaults.standardUserDefaults().registerDefaults(appDefaults)
+        //NSUserDefaults.standardUserDefaults().synchronize()
         return true
     }
 
@@ -37,7 +41,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         let urlString = NSUserDefaults.standardUserDefaults().stringForKey("PhotoURLString")
+        print("URL String")
         print(urlString)
+
+        
+        //let defaults = NSUserDefaults.standardUserDefaults()
+        //let writeLinks = ["sky", "lake", "tree", "stream", "flower", "mountain"]
+        //defaults.setObject(writeLinks, forKey: "Links")
+        let links = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
+        print("Links")
+        print(links)
+        
+        // defaults.setObject("sky", forKey: "Favorite")
+        // let favorite = NSUserDefaults.standardUserDefaults().objectForKey("Favorite") as? [NSString]
+        let favorite = NSUserDefaults.standardUserDefaults().stringForKey("Favorite")!
+        print("\nFavorite")
+        print(favorite)
     }
 
     func applicationWillTerminate(application: UIApplication) {

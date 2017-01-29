@@ -8,6 +8,33 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Favorite Link</string>
+			<key>Key</key>
+			<string>Favorite</string>
+			<key>DefaultValue</key>
+			<string>lake</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string></string>
+			<key>Key</key>
+			<string>Links</string>
+			<key>DefaultValue</key>
+			<array>
+				<string>sky</string>
+				<string>lake</string>
+				<string>tree</string>
+				<string>flower</string>
+				<string>stream</string>
+				<string>mountain</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Feed Setting</string>
