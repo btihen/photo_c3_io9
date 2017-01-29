@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.20000000000000001" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="wCo-pA-MWj">
                                 <rect key="frame" x="0.0" y="20" width="600" height="536"/>
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="landscape" translatesAutoresizingMaskIntoConstraints="NO" id="aND-Em-4Dd">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape" translatesAutoresizingMaskIntoConstraints="NO" id="aND-Em-4Dd">
+                                        <rect key="frame" x="0.0" y="0.0" width="1280" height="853"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -98,7 +98,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="YMC-kW-b0N"/>
                                                 </constraints>
-                                                <state key="normal" title="Feed"/>
+                                                <state key="normal" title="Search"/>
                                                 <connections>
                                                     <segue destination="Tfv-j1-PgB" kind="presentation" identifier="presetStory" id="xpw-Xj-1Tp"/>
                                                 </connections>
@@ -297,18 +297,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="Share" systemItem="bookmarks" id="I0t-ox-3u8"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="Share" systemItem="history" id="I0t-ox-3u8"/>
                     <navigationItem key="navigationItem" title="Title" id="ImK-jW-gCh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10O-sG-vWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="388" y="1105"/>
+            <point key="canvasLocation" x="1093" y="1067"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nlN-Uz-dfZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TbF-oU-TLv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="0WI-lC-ihH"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="0WI-lC-ihH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgA-V6-XL1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -321,7 +321,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwA-Np-6tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="329"/>
+            <point key="canvasLocation" x="1808" y="329"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qqI-cq-O7M">
@@ -339,9 +339,9 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL2-13-50n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="329"/>
+            <point key="canvasLocation" x="1093" y="329"/>
         </scene>
-        <!--Flickr Photos-->
+        <!--Flickr Results-->
         <scene sceneID="bCZ-Lu-dc7">
             <objects>
                 <tableViewController id="FE0-VJ-a1i" customClass="PhotosViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
@@ -364,13 +364,15 @@
                             <outlet property="delegate" destination="FE0-VJ-a1i" id="6zj-pE-bym"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Flickr Photos" id="VKp-mB-KmE"/>
+                    <navigationItem key="navigationItem" title="Flickr Results" id="VKp-mB-KmE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="a9b-XD-Id2"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcK-mc-P27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3049" y="329"/>
+            <point key="canvasLocation" x="3190" y="329"/>
         </scene>
-        <!--Flickr Links-->
+        <!--Flickr Search-->
         <scene sceneID="DAW-9f-pI9">
             <objects>
                 <viewController id="19e-4Q-vn5" customClass="TableViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
@@ -396,7 +398,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
                                         <rect key="frame" x="0.0" y="53" width="600" height="43"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67v-gy-IWZ">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67v-gy-IWZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Search Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAx-T8-vmZ">
@@ -406,7 +408,7 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="new search term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="new search term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
                                                         <rect key="frame" x="0.0" y="21" width="300" height="22"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -415,7 +417,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Ik-Vbq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Ik-Vbq">
                                                 <rect key="frame" x="300" y="0.0" width="300" height="43"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Search"/>
@@ -481,7 +483,7 @@
                             <constraint firstItem="hoB-7m-C4G" firstAttribute="leading" secondItem="gR1-Wf-uM9" secondAttribute="leading" id="u3Y-vV-NHO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Flickr Links" id="NQh-RH-bdw">
+                    <navigationItem key="navigationItem" title="Flickr Search" id="NQh-RH-bdw">
                         <barButtonItem key="backBarButtonItem" title="back" id="w27-JY-5x9"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="9n4-Di-lUX">
                             <connections>
@@ -495,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBI-xD-Q5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390" y="329"/>
+            <point key="canvasLocation" x="2501" y="329"/>
         </scene>
     </scenes>
     <resources>
