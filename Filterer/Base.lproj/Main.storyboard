@@ -341,7 +341,7 @@
             </objects>
             <point key="canvasLocation" x="1058" y="329"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Flickr Photos-->
         <scene sceneID="bCZ-Lu-dc7">
             <objects>
                 <tableViewController id="FE0-VJ-a1i" sceneMemberID="viewController">
@@ -351,7 +351,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iDX-V0-gAk">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iDX-V0-gAk" id="zVa-sW-n9o">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -364,6 +364,7 @@
                             <outlet property="delegate" destination="FE0-VJ-a1i" id="6zj-pE-bym"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Flickr Photos" id="VKp-mB-KmE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcK-mc-P27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -401,6 +402,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FE0-VJ-a1i" kind="show" id="QCR-wf-gfB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -414,6 +418,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Flickr Links" id="NQh-RH-bdw">
+                        <barButtonItem key="backBarButtonItem" title="back" id="w27-JY-5x9"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="9n4-Di-lUX">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="XnS-Nf-Onh"/>

@@ -20,36 +20,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate   = self
     }
 
-    // data collection
-    let filters = [
-        "red",
-        "blue",
-        "green",
-        "yellow",
-        "salmon",
-        "black",
-        "pink",
-        "dark grey",
-        "grey",
-        "light grey",
-        "lemon",
-        "lime",
-        "aqua",
-        "red",
-        "blue",
-        "green",
-        "yellow",
-        "salmon",
-        "black",
-        "pink",
-        "dark grey",
-        "grey",
-        "light grey",
-        "lemon",
-        "lime",
-        "aqua"
-    ]
-
     let links = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
     
     // DATA METHODS
