@@ -20,26 +20,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate   = self
     }
 
-    let links = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
+    let sortedLinks = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
+    //let sortedLinks = unsortedLinks.sort { $0.unsortedLinks < $1.unsortedLinks }
+    // let sortedLinks = unsortedLinks.sorted { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
     
     // DATA METHODS
     // how many rows needed
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return links.count
+        return sortedLinks.count
     }
     
     // keeps track of which cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LinkCell", forIndexPath: indexPath )
         // populate cell
-        cell.textLabel?.text = links[indexPath.row]
+        cell.textLabel?.text = sortedLinks[indexPath.row]
         return cell
     }
     
     // delegate methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(links[indexPath.row])
-        let selection = links[indexPath.row]
+        print(sortedLinks[indexPath.row])
+        let selection = sortedLinks[indexPath.row]
         print( selection )
         let urlString = "https://api.flickr.com/services/feeds/photos_public.gne?" + selection + "&format=json&nojsoncallback=1"
         print( urlString )
