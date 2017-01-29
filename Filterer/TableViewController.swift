@@ -21,7 +21,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     let sortedLinks = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
-    //let sortedLinks = unsortedLinks.sort { $0.unsortedLinks < $1.unsortedLinks }
+    // let sortedLinks = unsortedLinks.sort { $0 < $1 }
+    // let sortedLinks = unsortedLinks.sort { $0.unsortedLinks < $1.unsortedLinks }
     // let sortedLinks = unsortedLinks.sorted { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
     
     // DATA METHODS
