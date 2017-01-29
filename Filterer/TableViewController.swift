@@ -39,6 +39,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     // delegate methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(links[indexPath.row])
+        let selection = links[indexPath.row]
+        print( selection )
+        let urlString = "https://api.flickr.com/services/feeds/photos_public.gne?" + selection + "&format=json&nojsoncallback=1"
+        print( urlString )
     }
     
 }
