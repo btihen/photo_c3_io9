@@ -259,51 +259,6 @@
             </objects>
             <point key="canvasLocation" x="388" y="329"/>
         </scene>
-        <!--Info-->
-        <scene sceneID="Pek-uZ-cxo">
-            <objects>
-                <viewController title="Info" id="SHF-9Z-jat" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eFe-fv-m9a"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Sb-xV-jqY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uxG-W5-4S9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J10-uZ-1vy">
-                                <rect key="frame" x="0.0" y="25" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Photo Meta Data" id="fgp-iI-JB1">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="CsZ-nw-ROE">
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="jz9-PB-VhZ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97867705032639596" green="1" blue="0.76355099857500219" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="J10-uZ-1vy" firstAttribute="centerY" secondItem="uxG-W5-4S9" secondAttribute="centerY" id="Mdx-v5-ywd"/>
-                            <constraint firstItem="J10-uZ-1vy" firstAttribute="leading" secondItem="uxG-W5-4S9" secondAttribute="leading" id="PZi-Ad-2Q4"/>
-                            <constraint firstAttribute="trailing" secondItem="J10-uZ-1vy" secondAttribute="trailing" id="btx-TB-5F2"/>
-                            <constraint firstItem="J10-uZ-1vy" firstAttribute="top" secondItem="eFe-fv-m9a" secondAttribute="bottom" constant="5" id="sF6-xG-cYi"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Mdx-v5-ywd"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="Share" systemItem="history" id="I0t-ox-3u8"/>
-                    <navigationItem key="navigationItem" title="Title" id="ImK-jW-gCh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10O-sG-vWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1093" y="1067"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="nlN-Uz-dfZ">
             <objects>
@@ -334,7 +289,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="TbF-oU-TLv" kind="relationship" relationship="viewControllers" id="aMw-KQ-sib"/>
-                        <segue destination="SHF-9Z-jat" kind="relationship" relationship="viewControllers" id="dUB-37-qQ4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL2-13-50n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,12 +304,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iDX-V0-gAk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ytl-8E-Uzp" style="IBUITableViewCellStyleDefault" id="iDX-V0-gAk">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iDX-V0-gAk" id="zVa-sW-n9o">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ytl-8E-Uzp">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -364,9 +327,7 @@
                             <outlet property="delegate" destination="FE0-VJ-a1i" id="6zj-pE-bym"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Flickr Results" id="VKp-mB-KmE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="a9b-XD-Id2"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Flickr Results" id="VKp-mB-KmE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcK-mc-P27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,31 +349,18 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67v-gy-IWZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Search Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAx-T8-vmZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="21"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
-                                                        <rect key="frame" x="0.0" y="21" width="300" height="22"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                                    </textField>
-                                                </subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </stackView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Ik-Vbq">
-                                                <rect key="frame" x="300" y="0.0" width="300" height="43"/>
+                                                <rect key="frame" x="300" y="0.0" width="300" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Search"/>
+                                                <state key="normal" title="New Search"/>
                                                 <connections>
                                                     <segue destination="FE0-VJ-a1i" kind="show" identifier="searchTermSeque" id="bKg-BL-dQv"/>
                                                 </connections>
@@ -421,7 +369,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
-                                        <rect key="frame" x="0.0" y="53" width="600" height="434"/>
+                                        <rect key="frame" x="0.0" y="40" width="600" height="447"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prior Search Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-gV-nVA">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
@@ -431,7 +379,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2s7-UL-La8">
-                                                <rect key="frame" x="0.0" y="21" width="600" height="383"/>
+                                                <rect key="frame" x="0.0" y="21" width="600" height="396"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LinkCell" textLabel="hIP-Qn-TzC" style="IBUITableViewCellStyleDefault" id="kGf-cS-8BQ">
@@ -457,9 +405,12 @@
                                                 </prototypes>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-Rj-nvD">
-                                                <rect key="frame" x="0.0" y="404" width="600" height="30"/>
+                                                <rect key="frame" x="0.0" y="417" width="600" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Clear Prior Searches"/>
+                                                <connections>
+                                                    <action selector="onClearButton:" destination="19e-4Q-vn5" eventType="touchUpInside" id="wCk-n8-cmu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -484,6 +435,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="lpp-Rj-nvD" id="P2z-vZ-MlU"/>
                         <outlet property="tableView" destination="2s7-UL-La8" id="Okd-nC-p4R"/>
                         <outlet property="termTextField" destination="3aQ-h8-rRf" id="F0s-9t-KUG"/>
                     </connections>
@@ -506,7 +458,6 @@
         <image name="landscape" width="1280" height="853"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XnS-Nf-Onh"/>
         <segue reference="bKg-BL-dQv"/>
     </inferredMetricsTieBreakers>
 </document>
