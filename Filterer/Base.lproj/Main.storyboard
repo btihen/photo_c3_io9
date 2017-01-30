@@ -351,7 +351,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -360,9 +360,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Ik-Vbq">
                                                 <rect key="frame" x="300" y="0.0" width="300" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="New Search"/>
+                                                <state key="normal" title="Add Term"/>
                                                 <connections>
-                                                    <segue destination="FE0-VJ-a1i" kind="show" identifier="searchTermSeque" id="bKg-BL-dQv"/>
+                                                    <action selector="onAddButton:" destination="19e-4Q-vn5" eventType="touchUpInside" id="rQe-d5-CJ0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -404,7 +404,7 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-Rj-nvD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-Rj-nvD">
                                                 <rect key="frame" x="0.0" y="417" width="600" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Clear Prior Searches"/>
@@ -435,6 +435,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="e3R-Ik-Vbq" id="qX4-qR-B31"/>
                         <outlet property="clearButton" destination="lpp-Rj-nvD" id="P2z-vZ-MlU"/>
                         <outlet property="tableView" destination="2s7-UL-La8" id="Okd-nC-p4R"/>
                         <outlet property="termTextField" destination="3aQ-h8-rRf" id="F0s-9t-KUG"/>
@@ -457,7 +458,4 @@
         <image name="ic_wb_sunny" width="24" height="24"/>
         <image name="landscape" width="1280" height="853"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="bKg-BL-dQv"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var sortedLinks = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
     var refreshControl = UIRefreshControl()
     
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var termTextField: UITextField!
@@ -29,6 +30,21 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         termTextField.delegate = self
         
     }
+    @IBAction func onAddButton(sender: UIButton) {
+        if termTextField.text!.isEmpty {
+            print("empty")
+        } else {
+            var searchTerm = termTextField.text!
+            searchTerm = (searchTerm as NSString).stringByReplacingOccurrencesOfString(" ", withString: "_")
+            sortedLinks.append( searchTerm )
+            print("New Search Term: ")
+            print( searchTerm )
+            print("New Search List: ")
+            print( sortedLinks )
+            defaults.setObject(sortedLinks, forKey: "Links")
+            self.tableView.reloadData()
+        }
+    }
     
     @IBAction func onClearButton(sender: UIButton) {
         print("clear")
@@ -40,26 +56,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // http://stackoverflow.com/questions/37096587/check-textfield-has-value-before-redirecting-to-another-view-swift
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        
-        if termTextField.text!.isEmpty {
-            print("empty")
-            return false
-        } else{
-            print(termTextField.text)
-            let searchTerm = termTextField.text!
-            sortedLinks.append( searchTerm )
-            print("New Search Term: ")
-            print( searchTerm )
-            print("New Search List")
-            print( sortedLinks )
-            defaults.setObject(sortedLinks, forKey: "Links")
-            self.tableView.reloadData()
-            let urlString = "https://api.flickr.com/services/feeds/photos_public.gne?" + searchTerm + "&format=json&nojsoncallback=1"
-            print( urlString )
-            return true
-        }
-    }
+    // learn how to properly identify seques in order to use this - examples kept failing
+    //
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        
+//        if termTextField.text!.isEmpty {
+//            print("empty")
+//            return false
+//        } else{
+//            print(termTextField.text)
+//            let searchTerm = termTextField.text!
+//            sortedLinks.append( searchTerm )
+//            print("New Search Term: ")
+//            print( searchTerm )
+//            print("New Search List")
+//            print( sortedLinks )
+//            defaults.setObject(sortedLinks, forKey: "Links")
+//            self.tableView.reloadData()
+//            let urlString = "https://api.flickr.com/services/feeds/photos_public.gne?" + searchTerm + "&format=json&nojsoncallback=1"
+//            print( urlString )
+//            return true
+//        }
+//    }
     
     func reloadData() {}
     
