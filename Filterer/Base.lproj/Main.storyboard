@@ -98,7 +98,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="YMC-kW-b0N"/>
                                                 </constraints>
-                                                <state key="normal" title="Search"/>
+                                                <state key="normal" title="Flickr"/>
                                                 <connections>
                                                     <segue destination="Tfv-j1-PgB" kind="presentation" identifier="presetStory" id="xpw-Xj-1Tp"/>
                                                 </connections>
@@ -387,16 +387,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-7m-C4G">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPh-rA-Dtv">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Use Last Search Term"/>
-                                        <connections>
-                                            <segue destination="FE0-VJ-a1i" kind="show" id="dH2-3Z-uBR"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
-                                        <rect key="frame" x="0.0" y="53" width="600" height="43"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67v-gy-IWZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -408,7 +400,7 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="new search term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="term" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
                                                         <rect key="frame" x="0.0" y="21" width="300" height="22"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -422,14 +414,14 @@
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Search"/>
                                                 <connections>
-                                                    <segue destination="FE0-VJ-a1i" kind="show" id="bKg-BL-dQv"/>
+                                                    <segue destination="FE0-VJ-a1i" kind="show" identifier="searchTermSeque" id="bKg-BL-dQv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
-                                        <rect key="frame" x="0.0" y="106" width="600" height="381"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
+                                        <rect key="frame" x="0.0" y="53" width="600" height="434"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prior Search Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-gV-nVA">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
@@ -438,8 +430,8 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2s7-UL-La8">
-                                                <rect key="frame" x="0.0" y="21" width="600" height="330"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2s7-UL-La8">
+                                                <rect key="frame" x="0.0" y="21" width="600" height="383"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LinkCell" textLabel="hIP-Qn-TzC" style="IBUITableViewCellStyleDefault" id="kGf-cS-8BQ">
@@ -465,7 +457,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-Rj-nvD">
-                                                <rect key="frame" x="0.0" y="351" width="600" height="30"/>
+                                                <rect key="frame" x="0.0" y="404" width="600" height="30"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Clear Prior Searches"/>
                                             </button>
@@ -493,6 +485,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2s7-UL-La8" id="Okd-nC-p4R"/>
+                        <outlet property="termTextField" destination="3aQ-h8-rRf" id="F0s-9t-KUG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBI-xD-Q5E" userLabel="First Responder" sceneMemberID="firstResponder"/>

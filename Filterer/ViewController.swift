@@ -53,6 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bwButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected);
         
         zoomTapGesture.numberOfTapsRequired = 2
+        imagePressGesture.minimumPressDuration = 0.3
         
         // on app load - create an original image
         originalImage = UIImage( named: "landscape" )!
@@ -70,7 +71,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // }
     
     @IBAction func onZoomTaps(sender: UITapGestureRecognizer) {
-        // print("double tap")
+        print("double tap")
         UIView.animateWithDuration(0.3) { () -> Void in
             self.scrollView.zoomScale = 2 * self.scrollView.zoomScale
         }
@@ -123,7 +124,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // trick is to make sure the image view can see gestures!
     @IBAction func onImagePress(sender: AnyObject) {
-        // print("Long tap")
+        print("Long tap")
         if compareButton.enabled == true {
             if sender.state == .Ended {
                 //print("touches ended view")
