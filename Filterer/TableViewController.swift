@@ -35,14 +35,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("empty")
         } else {
             var searchTerm = termTextField.text!
+            // remove space and replace with _
+            // http://stackoverflow.com/questions/27963111/how-to-replace-string-into-string-in-swift
             searchTerm = (searchTerm as NSString).stringByReplacingOccurrencesOfString(" ", withString: "_")
             sortedLinks.append( searchTerm )
+            // http://stackoverflow.com/questions/36394813/sorting-of-an-array-alphabetically-in-swift
+            sortedLinks = sortedLinks.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+            defaults.setObject(sortedLinks, forKey: "Links")
+            self.tableView.reloadData()
+            
             print("New Search Term: ")
             print( searchTerm )
             print("New Search List: ")
             print( sortedLinks )
-            defaults.setObject(sortedLinks, forKey: "Links")
-            self.tableView.reloadData()
         }
     }
     
