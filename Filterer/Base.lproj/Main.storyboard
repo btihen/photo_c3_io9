@@ -259,11 +259,11 @@
             </objects>
             <point key="canvasLocation" x="388" y="329"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--flickr feed-->
         <scene sceneID="nlN-Uz-dfZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TbF-oU-TLv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="0WI-lC-ihH"/>
+                    <tabBarItem key="tabBarItem" title="flickr feed" image="ic_collections" id="0WI-lC-ihH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgA-V6-XL1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -677,6 +677,7 @@
         <image name="Share" width="44" height="44"/>
         <image name="ic_add_to_photos" width="24" height="24"/>
         <image name="ic_brightness_6" width="24" height="24"/>
+        <image name="ic_collections" width="24" height="24"/>
         <image name="ic_flare" width="24" height="24"/>
         <image name="ic_info_outline" width="24" height="24"/>
         <image name="ic_monochrome_photos" width="24" height="24"/>
