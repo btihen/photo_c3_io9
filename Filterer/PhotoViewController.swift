@@ -27,6 +27,16 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource   = self
     }
 
+    // didn't help
+    // http://stackoverflow.com/questions/26022756/warning-attempt-to-present-on-whose-view-is-not-in-the-window-hierarchy-s
+//    func topMostController() -> UIViewController {
+//        var topController: UIViewController = UIApplication.sharedApplication().keyWindow!.rootViewController!
+//        while (topController.presentedViewController != nil) {
+//            topController = topController.presentedViewController!
+//        }
+//        return topController
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,7 +66,9 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         print( "IMAGE SELECTED for Transition -- " + selectedImage )
         NSUserDefaults.standardUserDefaults().setObject(selectedImage, forKey: "DefaultImage")
         valueToPass = selectedImage
-        performSegueWithIdentifier("LoadNewDefaultImage", sender: self)
+        // had to disable this since segue was calling this (doesn't like two calls)
+        // http://stackoverflow.com/questions/11862883/whose-view-is-not-in-the-window-hierarchy
+        //performSegueWithIdentifier("LoadNewDefaultImage", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){

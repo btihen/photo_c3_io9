@@ -23,7 +23,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var termTextField: UITextField!
     
     let defaults = NSUserDefaults.standardUserDefaults()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

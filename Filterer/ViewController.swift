@@ -35,6 +35,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var compareButton: UIButton!
     
+    // didn't help
+    // http://stackoverflow.com/questions/26022756/warning-attempt-to-present-on-whose-view-is-not-in-the-window-hierarchy-s
+//    func topMostController() -> UIViewController {
+//        var topController: UIViewController = UIApplication.sharedApplication().keyWindow!.rootViewController!
+//        while (topController.presentedViewController != nil) {
+//            topController = topController.presentedViewController!
+//        }
+//        return topController
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
