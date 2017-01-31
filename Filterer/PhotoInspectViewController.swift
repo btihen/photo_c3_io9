@@ -21,7 +21,7 @@ class PhotoInspectViewController: UIViewController {
         if passedValue != nil {
             print( "PASSED VALUE " + passedValue! )
         } else {
-            print( "PASSED VALUE == NIL" )
+            print( "PASSED VALUE = NIL" )
         }
         passedValue = "sample"
         // passedValue = "landscape"
@@ -39,7 +39,7 @@ class PhotoInspectViewController: UIViewController {
     
     func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
         if error == nil {
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .Alert)
+            let ac = UIAlertController(title: "Saved!", message: "Your flickr image has been saved to your photos.", preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             presentViewController(ac, animated: true, completion: nil)
         } else {

@@ -64,25 +64,25 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     // delegate methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        // save the new array
         let selectedImage = images[indexPath.row]
-        print( "IMAGE SELECTED for Transition -- " + selectedImage )
         //NSUserDefaults.standardUserDefaults().setObject(selectedImage, forKey: "DefaultImage")
         valueToPass = selectedImage
+        print( "image selected to pass " + valueToPass )
         // had to disable this since segue was calling this (doesn't like two calls)
         // http://stackoverflow.com/questions/11862883/whose-view-is-not-in-the-window-hierarchy
-        //performSegueWithIdentifier("LoadNewDefaultImage", sender: self)
+        // performSegueWithIdentifier("InspectImage", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         print( "Segue OVERRIDE" )
-        if (segue.identifier == "PhotoInspectorSegue") {
+        if (segue.identifier == "InspectImage") {
+            print( "Inspect Image Segue" )
             let selectedRow = self.tableView.indexPathForSelectedRow?.row
             let valueToPass = images[selectedRow!]
             print( "PASSING VALUE -- " + valueToPass )
             // store the new default value
-            //NSUserDefaults.standardUserDefaults().setObject(valueToPass, forKey: "DefaultImage")
             // initialize new view controller and cast it as your view controller
-            let imageInspectorController = segue.destinationViewController as! ViewController
-            imageInspectorController.passedValue = valueToPass
+            let nextController = segue.destinationViewController as! PhotoInspectViewController
+            nextController.passedValue = valueToPass
         }
     }
 }
