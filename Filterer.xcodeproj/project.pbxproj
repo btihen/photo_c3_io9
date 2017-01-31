@@ -16,6 +16,7 @@
 		9A0976431E3E6F2000BF2873 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0976421E3E6F2000BF2873 /* PhotosViewController.swift */; };
 		9A0976451E3E711400BF2873 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0976441E3E711400BF2873 /* Feed.swift */; };
 		9A0976471E3E711E00BF2873 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0976461E3E711E00BF2873 /* FeedItem.swift */; };
+		9A0976491E4078AF00BF2873 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0976481E4078AF00BF2873 /* InfoViewController.swift */; };
 		9A22151D1E34E58400B518A1 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A22151C1E34E58400B518A1 /* Filters.swift */; };
 		9A63B5241E3D324E004EC465 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9A63B5231E3D324E004EC465 /* Settings.bundle */; };
 		9A63B5361E3E32D5004EC465 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A63B5351E3E32D5004EC465 /* TableViewController.swift */; };
@@ -33,6 +34,7 @@
 		9A0976421E3E6F2000BF2873 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		9A0976441E3E711400BF2873 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		9A0976461E3E711E00BF2873 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		9A0976481E4078AF00BF2873 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		9A22151C1E34E58400B518A1 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		9A63B5231E3D324E004EC465 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9A63B5351E3E32D5004EC465 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				4DC199971BB201E100AA75E7 /* AppDelegate.swift */,
 				9A63B5351E3E32D5004EC465 /* TableViewController.swift */,
+				9A0976481E4078AF00BF2873 /* InfoViewController.swift */,
 				9A0976421E3E6F2000BF2873 /* PhotosViewController.swift */,
 				4DC199991BB201E100AA75E7 /* ViewController.swift */,
 				4DC199A91BB2049F00AA75E7 /* RGBAImage.swift */,
@@ -160,6 +163,7 @@
 				9A22151D1E34E58400B518A1 /* Filters.swift in Sources */,
 				4DC199AA1BB2049F00AA75E7 /* RGBAImage.swift in Sources */,
 				9A0976451E3E711400BF2873 /* Feed.swift in Sources */,
+				9A0976491E4078AF00BF2873 /* InfoViewController.swift in Sources */,
 				9A0976471E3E711E00BF2873 /* FeedItem.swift in Sources */,
 				9A0976431E3E6F2000BF2873 /* PhotosViewController.swift in Sources */,
 				9A63B5361E3E32D5004EC465 /* TableViewController.swift in Sources */,

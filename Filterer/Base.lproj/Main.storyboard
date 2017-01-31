@@ -98,7 +98,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="YMC-kW-b0N"/>
                                                 </constraints>
-                                                <state key="normal" title="Flickr"/>
+                                                <state key="normal" title="More"/>
                                                 <connections>
                                                     <segue destination="Tfv-j1-PgB" kind="presentation" identifier="presetStory" id="xpw-Xj-1Tp"/>
                                                 </connections>
@@ -263,7 +263,7 @@
         <scene sceneID="nlN-Uz-dfZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TbF-oU-TLv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="0WI-lC-ihH"/>
+                    <tabBarItem key="tabBarItem" badgeValue="Flickr" systemItem="search" id="0WI-lC-ihH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgA-V6-XL1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -276,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwA-Np-6tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="329"/>
+            <point key="canvasLocation" x="1815" y="442"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qqI-cq-O7M">
@@ -289,11 +289,91 @@
                     </tabBar>
                     <connections>
                         <segue destination="TbF-oU-TLv" kind="relationship" relationship="viewControllers" id="aMw-KQ-sib"/>
+                        <segue destination="V7I-6U-CBd" kind="relationship" relationship="viewControllers" id="HR6-Kw-sOf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL2-13-50n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1093" y="329"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="wB6-r1-QWL">
+            <objects>
+                <viewController id="V7I-6U-CBd" customClass="InfoViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XIQ-73-PjA"/>
+                        <viewControllerLayoutGuide type="bottom" id="mFg-UK-Qe3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j3k-Z1-JvY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gk8-Ou-9ol">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="s16-5G-v3e"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Info" id="Dya-Ng-VeR">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="lJ2-rt-CE5">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" id="hkp-2h-BOq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-Lp-l5n">
+                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gk8-Ou-9ol" firstAttribute="trailing" secondItem="DDa-Lp-l5n" secondAttribute="trailing" id="2oJ-Hm-AxQ"/>
+                            <constraint firstAttribute="trailing" secondItem="DDa-Lp-l5n" secondAttribute="trailing" id="8Z6-Aq-ZIz"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="leading" secondItem="j3k-Z1-JvY" secondAttribute="leadingMargin" id="DaY-AG-sUP"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="trailing" secondItem="j3k-Z1-JvY" secondAttribute="trailingMargin" id="QdU-4J-ju5"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="leading" secondItem="j3k-Z1-JvY" secondAttribute="leading" id="QlM-By-t4k"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="top" secondItem="Gk8-Ou-9ol" secondAttribute="bottom" priority="10" id="W4D-TW-W05"/>
+                            <constraint firstItem="mFg-UK-Qe3" firstAttribute="top" secondItem="DDa-Lp-l5n" secondAttribute="bottom" id="WnW-mZ-sz6"/>
+                            <constraint firstItem="Gk8-Ou-9ol" firstAttribute="top" secondItem="j3k-Z1-JvY" secondAttribute="top" constant="20" id="Y8L-f4-bM5"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="centerY" secondItem="j3k-Z1-JvY" secondAttribute="centerY" id="ald-AH-gE4"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="top" secondItem="Gk8-Ou-9ol" secondAttribute="bottom" id="eJs-6O-iSh"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="leading" secondItem="j3k-Z1-JvY" secondAttribute="leading" id="qPf-zY-heu"/>
+                            <constraint firstAttribute="trailing" secondItem="Gk8-Ou-9ol" secondAttribute="trailing" id="rwo-jD-4Pu"/>
+                            <constraint firstItem="Gk8-Ou-9ol" firstAttribute="centerX" secondItem="DDa-Lp-l5n" secondAttribute="centerX" id="sUF-Bc-Dwx"/>
+                            <constraint firstItem="DDa-Lp-l5n" firstAttribute="centerY" secondItem="j3k-Z1-JvY" secondAttribute="centerY" id="sxd-DJ-faE"/>
+                            <constraint firstItem="Gk8-Ou-9ol" firstAttribute="leading" secondItem="DDa-Lp-l5n" secondAttribute="leading" id="sya-zw-7rj"/>
+                            <constraint firstItem="mFg-UK-Qe3" firstAttribute="top" secondItem="DDa-Lp-l5n" secondAttribute="bottom" id="xQQ-Zq-ovK"/>
+                            <constraint firstItem="Gk8-Ou-9ol" firstAttribute="leading" secondItem="DDa-Lp-l5n" secondAttribute="leading" id="zFG-aO-q9T"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2oJ-Hm-AxQ"/>
+                                <exclude reference="sya-zw-7rj"/>
+                                <exclude reference="zFG-aO-q9T"/>
+                                <exclude reference="8Z6-Aq-ZIz"/>
+                                <exclude reference="QlM-By-t4k"/>
+                                <exclude reference="W4D-TW-W05"/>
+                                <exclude reference="ald-AH-gE4"/>
+                                <exclude reference="qPf-zY-heu"/>
+                                <exclude reference="sxd-DJ-faE"/>
+                                <exclude reference="WnW-mZ-sz6"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" badgeValue="App Info" systemItem="more" id="Dhd-Wl-bCl"/>
+                    <navigationItem key="navigationItem" title="Title" id="WtA-LD-wef"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="DDa-Lp-l5n" id="bCC-xB-Uai"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bmh-rf-9E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="1043"/>
         </scene>
         <!--Flickr Results-->
         <scene sceneID="bCZ-Lu-dc7">
@@ -371,7 +451,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
                                         <rect key="frame" x="0.0" y="40" width="600" height="447"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prior Search Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-gV-nVA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-gV-nVA">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -458,4 +538,7 @@
         <image name="ic_wb_sunny" width="24" height="24"/>
         <image name="landscape" width="1280" height="853"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XnS-Nf-Onh"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -34,14 +35,26 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if termTextField.text!.isEmpty {
             print("empty")
         } else {
-            var searchTerm = termTextField.text!
+            let inputTerm = termTextField.text!
+            // lowercase the string -- need foundation
+            // http://stackoverflow.com/questions/26245645/swift-uppercasestring-or-lowercasestring-property-replacement
+            var searchTerm = inputTerm.lowercaseString
+            
             // remove space and replace with _
             // http://stackoverflow.com/questions/27963111/how-to-replace-string-into-string-in-swift
             searchTerm = (searchTerm as NSString).stringByReplacingOccurrencesOfString(" ", withString: "_")
+            
+            // add new term to the array
             sortedLinks.append( searchTerm )
+            
+            // sort the array alphabetically
             // http://stackoverflow.com/questions/36394813/sorting-of-an-array-alphabetically-in-swift
             sortedLinks = sortedLinks.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+            
+            // save the new array
             defaults.setObject(sortedLinks, forKey: "Links")
+            
+            // reload the table with the new data
             self.tableView.reloadData()
             
             print("New Search Term: ")
