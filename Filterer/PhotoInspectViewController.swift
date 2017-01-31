@@ -11,7 +11,7 @@ import UIKit
 class PhotoInspectViewController: UIViewController {
 
     var passedValue: String?
-    var originalImage = UIImage( named: "landscape" )!
+    var inspectImage = UIImage( named: "landscape" )!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -22,11 +22,12 @@ class PhotoInspectViewController: UIViewController {
             print( "PASSED VALUE " + passedValue! )
         } else {
             print( "PASSED VALUE = NIL" )
+            passedValue = "landscape"
         }
-        passedValue = "sample"
+        // passedValue = "sample"
         // passedValue = "landscape"
-        originalImage = UIImage( named: passedValue! )!
-        imageView.image = originalImage
+        inspectImage = UIImage( named: passedValue! )!
+        imageView.image = inspectImage
     }
 
     @IBAction func onSave(sender: UIBarButtonItem) {
@@ -48,15 +49,5 @@ class PhotoInspectViewController: UIViewController {
             presentViewController(ac, animated: true, completion: nil)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
