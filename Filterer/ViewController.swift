@@ -69,12 +69,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // image load logic
         if passedValue == nil || passedValue == "" {
             print( "NO PASSED VALUE -- try stored value" )
-            storedPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")!
+            storedPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")
             if storedPhoto == nil || storedPhoto == "" {
-                print( "NO PASSED VALUE load -- landscape" )
+                print( "NO STORED PHOTO using startup default -- landscape" )
                 originalImage = UIImage( named: "landscape" )!
             } else {
-                print( "LOAD PASSED VALUE -- " + storedPhoto! )
+                print( "LOAD STORED VALUE -- " + storedPhoto! )
                 originalImage = UIImage( named: storedPhoto! )!
             }
         } else {
@@ -82,30 +82,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             originalImage = UIImage( named: passedValue! )!
         }
         
-        // on app load - create an original image
-//        if passedValue == nil || passedValue{
-//            print( "NO PASSED VALUE - GET DEFAULT VALUE" )
-//            loadPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")!
-//            if loadPhoto == nil {
-//                print( "NO STORED VALUE - using landscape" )
-//                loadPhoto = "landscape"
-//                originalImage = UIImage( named: loadPhoto! )!
-//            } else {
-//                print( "USING STORED VALUE " + loadPhoto! )
-//                originalImage = UIImage( named: loadPhoto! )!
-//            }
-//        } else {
-//            print( "USING PASSED VALUE -- " + passedValue! )
-//            loadPhoto = passedValue
-//            originalImage = UIImage( named: loadPhoto! )!
-//        }
-        
         // load original image into display
         imageView.image = originalImage
         // on app load - disable compare button since there is no filtered image yet
         compareButton.enabled = false
         
-        print( "IMAGE PAGE LOADED" )
+        print( "IMAGE VIEW CONTROLLER" )
     }
     
     // override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -240,7 +222,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
-    
     @IBAction func onSlider(sender: UISlider) {
         // print("on slider")
         // print( sliderValue )

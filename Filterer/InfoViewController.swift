@@ -29,7 +29,7 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print( "INFO VIEW CONTROLLER" )
         // multi-line label
         // http://stackoverflow.com/questions/30151237/adding-multiple-lines-of-text-into-uilabel-in-swift
         // remove line number restrictions (also possible to set in the storyboar)

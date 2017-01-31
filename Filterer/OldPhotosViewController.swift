@@ -39,8 +39,8 @@ class OldPhotosViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchURL  = NSUserDefaults.standardUserDefaults().stringForKey("SearchURL")!
-        searchTerm = NSUserDefaults.standardUserDefaults().stringForKey("SearchTerm")!
+        searchURL  = NSUserDefaults.standardUserDefaults().stringForKey("SearchURL")
+        searchTerm = NSUserDefaults.standardUserDefaults().stringForKey("SearchTerm")
         
         // set the title of the page to the search term
         // http://stackoverflow.com/questions/25167458/changing-navigation-title-programmatically
