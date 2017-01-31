@@ -11,12 +11,14 @@ import Foundation
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
+    var searchURL:  String?
     var searchTerm: String?
     var sortedLinks = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
     var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var lastSearchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var termTextField: UITextField!
     
@@ -24,6 +26,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // diable the last search button if there is no last searched terms
+        searchURL  = NSUserDefaults.standardUserDefaults().stringForKey("SearchURL")
+        searchTerm = NSUserDefaults.standardUserDefaults().stringForKey("SearchTerm")
+        if searchTerm == nil || searchURL == nil {
+            lastSearchButton.enabled = false
+        } else {
+            lastSearchButton.enabled = true
+        }
         
         // assign data source -- state where the data comes from
         tableView.delegate     = self
@@ -57,20 +68,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             // reload the table with the new data
             self.tableView.reloadData()
             
-            print("New Search Term: ")
-            print( searchTerm )
-            print("New Search List: ")
-            print( sortedLinks )
+            // print("New Search Term: ")
+            // print( searchTerm )
+            // print("New Search List: ")
+            // print( sortedLinks )
         }
     }
     
     @IBAction func onClearButton(sender: UIButton) {
-        print("clear")
+        // empty the search list
         sortedLinks = [String]()
-        print("New Search List")
-        print( sortedLinks )
+        // save the new array
         defaults.setObject(sortedLinks, forKey: "Links")
+        // reload the table (with no search tags)
         self.tableView.reloadData()
+        
+        // print("clear")
+        // print("New Search List")
+        // print( sortedLinks )
     }
     
     // http://stackoverflow.com/questions/37096587/check-textfield-has-value-before-redirecting-to-another-view-swift
@@ -116,12 +131,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // delegate methods
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(sortedLinks[indexPath.row])
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        // save the new array
         let searchTerm = sortedLinks[indexPath.row]
-        print( searchTerm )
-        let urlString = "https://api.flickr.com/services/feeds/photos_public.gne?" + searchTerm + "&format=json&nojsoncallback=1"
-        print( urlString )
+        let searchURL  = "https://api.flickr.com/services/feeds/photos_public.gne?" + searchTerm + "&format=json&nojsoncallback=1"
+        // until I figure out how to pass data between controllers or with segues
+        // I will save the data and read it in PhotoViewController!
+        defaults.setObject(searchURL,  forKey: "SearchURL")
+        defaults.setObject(searchTerm, forKey: "SearchTerm")
+        
+        // test to see if the last search terms were really saved
+        // if so enable the last search button
+        let newSearchURL  = defaults.stringForKey("SearchURL")
+        let newSearchTerm = defaults.stringForKey("SearchTerm")
+        if newSearchTerm == nil || newSearchURL == nil {
+            lastSearchButton.enabled = false
+        } else {
+            lastSearchButton.enabled = true
+        }
+
+        // print( searchURL )
+        // print(sortedLinks[indexPath.row])
+        // print( searchTerm )
+
     }
     
 }

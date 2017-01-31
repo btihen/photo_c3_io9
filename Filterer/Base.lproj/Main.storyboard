@@ -276,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwA-Np-6tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="442"/>
+            <point key="canvasLocation" x="1817" y="329"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qqI-cq-O7M">
@@ -428,28 +428,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-7m-C4G">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCZ-JP-pFH">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Ik-Vbq">
-                                                <rect key="frame" x="300" y="0.0" width="300" height="30"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Add Term"/>
-                                                <connections>
-                                                    <action selector="onAddButton:" destination="19e-4Q-vn5" eventType="touchUpInside" id="rQe-d5-CJ0"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
-                                        <rect key="frame" x="0.0" y="40" width="600" height="447"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Repeat Last Search"/>
+                                        <connections>
+                                            <segue destination="FE0-VJ-a1i" kind="show" id="IJV-S0-uOH"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAY-MH-Mu6">
+                                        <rect key="frame" x="0.0" y="40" width="600" height="367"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Terms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-gV-nVA">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
@@ -459,7 +447,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2s7-UL-La8">
-                                                <rect key="frame" x="0.0" y="21" width="600" height="396"/>
+                                                <rect key="frame" x="0.0" y="21" width="600" height="346"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LinkCell" textLabel="hIP-Qn-TzC" style="IBUITableViewCellStyleDefault" id="kGf-cS-8BQ">
@@ -484,21 +472,56 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-Rj-nvD">
-                                                <rect key="frame" x="0.0" y="417" width="600" height="30"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Clear Prior Searches"/>
-                                                <connections>
-                                                    <action selector="onClearButton:" destination="19e-4Q-vn5" eventType="touchUpInside" id="wCk-n8-cmu"/>
-                                                </connections>
-                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="dEu-gV-nVA" firstAttribute="leading" secondItem="SAY-MH-Mu6" secondAttribute="leadingMargin" id="2x5-db-9RE"/>
+                                            <constraint firstItem="dEu-gV-nVA" firstAttribute="top" secondItem="SAY-MH-Mu6" secondAttribute="topMargin" id="ZiC-Q3-Fzl"/>
+                                            <constraint firstItem="dEu-gV-nVA" firstAttribute="trailing" secondItem="SAY-MH-Mu6" secondAttribute="trailingMargin" id="f29-N0-5RI"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
+                                        <rect key="frame" x="0.0" y="417" width="600" height="30"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-bs-4SV">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-h8-rRf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3R-Ik-Vbq">
+                                                        <rect key="frame" x="300" y="0.0" width="300" height="30"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <state key="normal" title="Add Term"/>
+                                                        <connections>
+                                                            <action selector="onAddButton:" destination="19e-4Q-vn5" eventType="touchUpInside" id="rQe-d5-CJ0"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-Rj-nvD">
+                                        <rect key="frame" x="0.0" y="457" width="600" height="30"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Clear Search Terms"/>
+                                        <connections>
+                                            <action selector="onClearButton:" destination="19e-4Q-vn5" eventType="touchUpInside" id="wCk-n8-cmu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="top" secondItem="hoB-7m-C4G" secondAttribute="topMargin" id="cKr-9X-Ysb"/>
+                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="trailing" secondItem="hoB-7m-C4G" secondAttribute="trailingMargin" id="dON-bV-cN2"/>
+                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="leading" secondItem="hoB-7m-C4G" secondAttribute="leadingMargin" id="iOb-fB-g8k"/>
+                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hoB-7m-C4G" secondAttribute="trailing" id="4LU-eT-Q8N"/>
                             <constraint firstItem="hoB-7m-C4G" firstAttribute="top" secondItem="geb-Aa-hd2" secondAttribute="bottom" id="J6b-qm-bDU"/>
@@ -517,13 +540,14 @@
                     <connections>
                         <outlet property="addButton" destination="e3R-Ik-Vbq" id="qX4-qR-B31"/>
                         <outlet property="clearButton" destination="lpp-Rj-nvD" id="P2z-vZ-MlU"/>
+                        <outlet property="lastSearchButton" destination="aCZ-JP-pFH" id="w2o-Gh-DJ7"/>
                         <outlet property="tableView" destination="2s7-UL-La8" id="Okd-nC-p4R"/>
                         <outlet property="termTextField" destination="3aQ-h8-rRf" id="F0s-9t-KUG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBI-xD-Q5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501" y="329"/>
+            <point key="canvasLocation" x="2486" y="329"/>
         </scene>
     </scenes>
     <resources>
@@ -540,5 +564,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XnS-Nf-Onh"/>
+        <segue reference="QCR-wf-gfB"/>
     </inferredMetricsTieBreakers>
 </document>

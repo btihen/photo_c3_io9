@@ -10,12 +10,23 @@ import UIKit
 
 class PhotosViewController: UITableViewController {
     
+    var searchURL:  String?
     var searchTerm: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchURL  = NSUserDefaults.standardUserDefaults().stringForKey("SearchURL")!
+        
+        searchTerm = NSUserDefaults.standardUserDefaults().stringForKey("SearchTerm")!
+        
+        // set the title of the page to the search term
+        // http://stackoverflow.com/questions/25167458/changing-navigation-title-programmatically
+        self.title = "Flickr: " + searchTerm!
+        
         print( "Photo Controller")
+        print( searchTerm! )
+        print( searchURL! )
         
         // print( "Search Term: " + searchTerm! )
 
