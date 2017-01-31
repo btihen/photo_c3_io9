@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     
     var sliderValue: Int?
-
+    var passedValue: String?
     var filteredImage: UIImage?
     var originalImage: UIImage?
+    var storedPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var imageView: UIImageView!
@@ -55,12 +56,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         zoomTapGesture.numberOfTapsRequired = 2
         imagePressGesture.minimumPressDuration = 0.3
         
+        // image load logic
+        if passedValue == nil || passedValue == "" {
+            print( "NO PASSED VALUE -- try stored value" )
+            storedPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")!
+            if storedPhoto == nil || storedPhoto == "" {
+                print( "NO PASSED VALUE load -- landscape" )
+                originalImage = UIImage( named: "landscape" )!
+            } else {
+                print( "LOAD PASSED VALUE -- " + storedPhoto! )
+                originalImage = UIImage( named: storedPhoto! )!
+            }
+        } else {
+            print( "LOAD PASSED VALUE -- " + passedValue! )
+            originalImage = UIImage( named: passedValue! )!
+        }
+        
         // on app load - create an original image
-        originalImage = UIImage( named: "landscape" )!
+//        if passedValue == nil || passedValue{
+//            print( "NO PASSED VALUE - GET DEFAULT VALUE" )
+//            loadPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")!
+//            if loadPhoto == nil {
+//                print( "NO STORED VALUE - using landscape" )
+//                loadPhoto = "landscape"
+//                originalImage = UIImage( named: loadPhoto! )!
+//            } else {
+//                print( "USING STORED VALUE " + loadPhoto! )
+//                originalImage = UIImage( named: loadPhoto! )!
+//            }
+//        } else {
+//            print( "USING PASSED VALUE -- " + passedValue! )
+//            loadPhoto = passedValue
+//            originalImage = UIImage( named: loadPhoto! )!
+//        }
+        
         // load original image into display
         imageView.image = originalImage
         // on app load - disable compare button since there is no filtered image yet
         compareButton.enabled = false
+        
+        print( "IMAGE PAGE LOADED" )
     }
     
     // override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

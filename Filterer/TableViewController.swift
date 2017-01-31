@@ -40,7 +40,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate     = self
         tableView.dataSource   = self
         termTextField.delegate = self
-        
     }
     @IBAction func onAddButton(sender: UIButton) {
         if termTextField.text!.isEmpty {

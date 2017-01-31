@@ -276,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwA-Np-6tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="329"/>
+            <point key="canvasLocation" x="1824" y="898"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qqI-cq-O7M">
@@ -375,44 +375,6 @@
             </objects>
             <point key="canvasLocation" x="1093" y="1043"/>
         </scene>
-        <!--Flickr Results-->
-        <scene sceneID="bCZ-Lu-dc7">
-            <objects>
-                <tableViewController id="FE0-VJ-a1i" customClass="PhotosViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8mi-P5-MgY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ytl-8E-Uzp" style="IBUITableViewCellStyleDefault" id="iDX-V0-gAk">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iDX-V0-gAk" id="zVa-sW-n9o">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ytl-8E-Uzp">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="FE0-VJ-a1i" id="sxw-1n-GZa"/>
-                            <outlet property="delegate" destination="FE0-VJ-a1i" id="6zj-pE-bym"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Flickr Results" id="VKp-mB-KmE"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YcK-mc-P27" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3190" y="329"/>
-        </scene>
         <!--Flickr Search-->
         <scene sceneID="DAW-9f-pI9">
             <objects>
@@ -433,7 +395,7 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Repeat Last Search"/>
                                         <connections>
-                                            <segue destination="FE0-VJ-a1i" kind="show" id="IJV-S0-uOH"/>
+                                            <segue destination="fSa-c5-H0M" kind="show" id="wAH-JF-j6d"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAY-MH-Mu6">
@@ -467,17 +429,12 @@
                                                             </subviews>
                                                         </tableViewCellContentView>
                                                         <connections>
-                                                            <segue destination="FE0-VJ-a1i" kind="show" id="QCR-wf-gfB"/>
+                                                            <segue destination="fSa-c5-H0M" kind="show" id="dEq-Zg-GFL"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="dEu-gV-nVA" firstAttribute="leading" secondItem="SAY-MH-Mu6" secondAttribute="leadingMargin" id="2x5-db-9RE"/>
-                                            <constraint firstItem="dEu-gV-nVA" firstAttribute="top" secondItem="SAY-MH-Mu6" secondAttribute="topMargin" id="ZiC-Q3-Fzl"/>
-                                            <constraint firstItem="dEu-gV-nVA" firstAttribute="trailing" secondItem="SAY-MH-Mu6" secondAttribute="trailingMargin" id="f29-N0-5RI"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDO-5i-5cr">
                                         <rect key="frame" x="0.0" y="417" width="600" height="30"/>
@@ -515,18 +472,27 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="top" secondItem="hoB-7m-C4G" secondAttribute="topMargin" id="cKr-9X-Ysb"/>
-                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="trailing" secondItem="hoB-7m-C4G" secondAttribute="trailingMargin" id="dON-bV-cN2"/>
-                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="leading" secondItem="hoB-7m-C4G" secondAttribute="leadingMargin" id="iOb-fB-g8k"/>
+                                    <constraint firstAttribute="trailing" secondItem="lDO-5i-5cr" secondAttribute="trailing" id="2bo-n8-9Pc"/>
+                                    <constraint firstAttribute="trailing" secondItem="lpp-Rj-nvD" secondAttribute="trailing" id="8wQ-6R-dCo"/>
+                                    <constraint firstItem="lDO-5i-5cr" firstAttribute="leading" secondItem="hoB-7m-C4G" secondAttribute="leading" id="De8-P9-GNS"/>
+                                    <constraint firstAttribute="trailing" secondItem="aCZ-JP-pFH" secondAttribute="trailing" id="Ehu-qY-6jn"/>
+                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="top" secondItem="hoB-7m-C4G" secondAttribute="top" id="Gap-Kn-KCv"/>
+                                    <constraint firstItem="aCZ-JP-pFH" firstAttribute="leading" secondItem="hoB-7m-C4G" secondAttribute="leading" id="VHv-HN-OS5"/>
+                                    <constraint firstItem="lDO-5i-5cr" firstAttribute="top" secondItem="SAY-MH-Mu6" secondAttribute="bottom" constant="10" id="W0A-aa-JBQ"/>
+                                    <constraint firstItem="SAY-MH-Mu6" firstAttribute="top" secondItem="aCZ-JP-pFH" secondAttribute="bottom" constant="10" id="bpb-Xw-iBc"/>
+                                    <constraint firstItem="lpp-Rj-nvD" firstAttribute="leading" secondItem="hoB-7m-C4G" secondAttribute="leading" id="lxG-r1-yXw"/>
+                                    <constraint firstItem="SAY-MH-Mu6" firstAttribute="leading" secondItem="hoB-7m-C4G" secondAttribute="leading" id="m1v-Yv-mnP"/>
+                                    <constraint firstAttribute="trailing" secondItem="SAY-MH-Mu6" secondAttribute="trailing" id="uTi-FG-EtF"/>
+                                    <constraint firstAttribute="bottom" secondItem="lpp-Rj-nvD" secondAttribute="bottom" id="wTM-wN-ulb"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hoB-7m-C4G" secondAttribute="trailing" id="4LU-eT-Q8N"/>
-                            <constraint firstItem="hoB-7m-C4G" firstAttribute="top" secondItem="geb-Aa-hd2" secondAttribute="bottom" id="J6b-qm-bDU"/>
-                            <constraint firstItem="Jyy-iC-xyR" firstAttribute="top" secondItem="hoB-7m-C4G" secondAttribute="bottom" id="nPm-ZG-5fR"/>
-                            <constraint firstItem="hoB-7m-C4G" firstAttribute="leading" secondItem="gR1-Wf-uM9" secondAttribute="leading" id="u3Y-vV-NHO"/>
+                            <constraint firstItem="hoB-7m-C4G" firstAttribute="top" secondItem="geb-Aa-hd2" secondAttribute="bottom" id="JfY-LJ-0JB"/>
+                            <constraint firstAttribute="trailing" secondItem="hoB-7m-C4G" secondAttribute="trailing" id="ODo-2m-7hM"/>
+                            <constraint firstItem="hoB-7m-C4G" firstAttribute="leading" secondItem="gR1-Wf-uM9" secondAttribute="leading" id="a0a-8E-zfb"/>
+                            <constraint firstItem="hoB-7m-C4G" firstAttribute="bottom" secondItem="Jyy-iC-xyR" secondAttribute="top" id="edA-Ed-2Z6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Flickr Search" id="NQh-RH-bdw">
@@ -549,6 +515,62 @@
             </objects>
             <point key="canvasLocation" x="2486" y="329"/>
         </scene>
+        <!--Pick Default Image-->
+        <scene sceneID="3uO-qC-d3d">
+            <objects>
+                <viewController id="fSa-c5-H0M" customClass="PhotoViewController" customModule="Filterer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FHq-zf-Ib4"/>
+                        <viewControllerLayoutGuide type="bottom" id="0ip-Ka-VLe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JQ7-GD-gOI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uub-9G-mMz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" textLabel="0cM-Se-PfY" style="IBUITableViewCellStyleDefault" id="jft-gf-UbJ">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jft-gf-UbJ" id="Amk-cm-WiR">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0cM-Se-PfY">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoadNewDefaultImage" id="xKI-Dd-lM2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0ip-Ka-VLe" firstAttribute="top" secondItem="uub-9G-mMz" secondAttribute="bottom" id="1mX-oe-4Oy"/>
+                            <constraint firstItem="uub-9G-mMz" firstAttribute="top" secondItem="FHq-zf-Ib4" secondAttribute="bottom" id="Kti-Hs-cZS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uub-9G-mMz" secondAttribute="trailing" constant="-20" id="exM-gN-Qzc"/>
+                            <constraint firstItem="uub-9G-mMz" firstAttribute="leading" secondItem="JQ7-GD-gOI" secondAttribute="leadingMargin" constant="-20" id="zhw-CE-K4e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pick Default Image" id="AdS-Wb-cnn"/>
+                    <connections>
+                        <outlet property="tableView" destination="uub-9G-mMz" id="eda-O1-oUZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHT-mw-KDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3169" y="329"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Compare" width="44" height="44"/>
@@ -563,7 +585,7 @@
         <image name="landscape" width="1280" height="853"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XnS-Nf-Onh"/>
-        <segue reference="QCR-wf-gfB"/>
+        <segue reference="wAH-JF-j6d"/>
+        <segue reference="xKI-Dd-lM2"/>
     </inferredMetricsTieBreakers>
 </document>
