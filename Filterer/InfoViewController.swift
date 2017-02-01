@@ -14,17 +14,22 @@ class InfoViewController: UIViewController {
     
     // sane long string formatting
     // http://stackoverflow.com/questions/24091233/swift-split-string-over-multiple-lines
-    let infoText = "APP INFO:" +
-        "\n\n" +
+    let infoText = "GESTURES:" +
+        "\n" +
         "* Double Tap -- Zooms" +
-        "\n\n" +
+        "\n" +
         "* Tap & Drag -- allows panning" +
-        "\n\n" +
+        "\n" +
         "* Pinch Gestures -- allows zooming and an overview" +
-        "\n\n" +
+        "\n" +
         "* Long Touch -- switches between original and filtered image" +
         "\n\n" +
-        "* CREDIT: URLs of contributed ideas are in the code"
+        "SEARCH FLICKR -- allows one to search flickr and download the images" +
+        "\n\n" +
+        "START PHOTO: allows one to set a new default start-up image"
+        + "\n\n" +
+        "CREDITS: URLs of contributed ideas are in the code"
+
 
     
     override func viewDidLoad() {

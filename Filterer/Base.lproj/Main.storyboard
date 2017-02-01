@@ -380,7 +380,7 @@
                                     <constraint firstAttribute="height" constant="44" id="s16-5G-v3e"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Info" id="Dya-Ng-VeR">
+                                    <navigationItem title="App Info &amp; Credit" id="Dya-Ng-VeR">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="lJ2-rt-CE5">
                                             <connections>
                                                 <segue destination="BYZ-38-t0r" kind="presentation" id="hkp-2h-BOq"/>
@@ -391,7 +391,7 @@
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDa-Lp-l5n">
                                 <rect key="frame" x="20" y="64" width="560" height="487"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -733,7 +733,7 @@
         <image name="landscape" width="1280" height="853"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XnS-Nf-Onh"/>
+        <segue reference="hkp-2h-BOq"/>
         <segue reference="dEq-Zg-GFL"/>
     </inferredMetricsTieBreakers>
 </document>
