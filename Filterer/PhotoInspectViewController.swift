@@ -44,8 +44,9 @@ class PhotoInspectViewController: UIViewController {
         // passedValue = "sample"
         // passedValue = "landscape"
         // inspectImage = UIImage( named: passedValue! )!
+        //imageView.image = inspectImage
+
         photoTitle.text = passedFeedItem!.title
-        imageView.image = inspectImage
         photoURL.text   = passedFeedItem!.imageURLString
         
         let url = NSURL(string: passedFeedItem!.imageURLString)

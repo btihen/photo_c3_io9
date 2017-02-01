@@ -64,7 +64,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             print( "USING PASSED VALUES" )
             searchTerm = valuePassed!
         }
-        urlString  = "https://api.flickr.com/services/feeds/photos_public.gne?" + searchTerm! + "&format=json&nojsoncallback=1"
+        urlString  = "https://api.flickr.com/services/feeds/photos_public.gne?tags=" + searchTerm! + "&format=json&nojsoncallback=1"
         print( "FLICKR SEARCH TERM " + searchTerm! )
         print( "FLICKR SEARCH URL "  + urlString! )
         tableView.delegate     = self
@@ -130,39 +130,20 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         print( "ASSIGN IMAGE SUB-TITLE " + item.imageURLString )
         
         // ASSIGN IMAGES
-        // while using text will just send this image (image is ALWAYS NEED FOR SEGUES!)
-        // cell.imageView?.image = UIImage( named: "sample" )
-        
-        // download flickr image for cell WHEN NEEDED - less RAM
-        // get url request - method, access passwords, etc
-        let request = NSURLRequest(URL: item.imageURL)
-        // actually go get the info needed with 
-        //   self.urlSession.dataTaskWithRequest(request)
-        //   get back from block DATA, server response, and any errors
-        var dataTask: NSURLSessionDataTask?
-        dataTask = self.urlSession.dataTaskWithRequest(request) {
-            (data, response, error) -> Void in
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    // always call queue on main thread mainQueue()
-                    print( "IN SIDE THREAD - getting answer" )
-                    if error == nil && data != nil {
-                        print( "GOT IMAGE - no errors" )
-                        // if to check to see if we have no errors
-                        // and check that we have data returned
-                        self.imageToPass = UIImage(data: data!)
-                        print( "ASSIGNED to IMAGE TO PASS" )
-                        //cell.itemImageView.image = image
-                        cell.imageView?.image = UIImage(data: data!)
-                        print( "ASSIGNED TO IMAGE CELL" )
-                        // imageToPass = image
-                    }
-                })
-        }
-        // only actually download when calling RESUME!
-        print( "CALL for IMAGE DOWNLOAD" )
-        dataTask?.resume()
         print( "IMAGE DOWNLOADED and in CELL" )
-        // cell.imageView?.image = imageToPass
+        let url = NSURL(string: item.imageURLString)
+        let data = NSData(contentsOfURL:url!)
+        
+        // It is the best way to manage nil issue.
+        if data!.length > 0 {
+            imageToPass = UIImage(data:data!)
+            // cell.imageView!.image = UIImage(data:data!)
+        } else {
+            // didn't get image - use a placeholder image!
+            imageToPass = UIImage( named: "landscape" )
+            // cell.imageView!.image = UIImage( named: "landscape" )
+        }
+        cell.imageView?.image = imageToPass
         
         return cell
     }
