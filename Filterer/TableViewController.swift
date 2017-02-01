@@ -11,8 +11,9 @@ import Foundation
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
-    var searchURL:  String?
-    var searchTerm: String?
+    var searchURL:   String?
+    var searchTerm:  String?
+    var valueToPass: String!
     //var allLinks = [String]()
     var sortedLinks = NSUserDefaults.standardUserDefaults().objectForKey("Links") as? [String] ?? [String]()
     var refreshControl = UIRefreshControl()
@@ -107,6 +108,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // delegate methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print( "ROW SELECTED" )
         // save the new array
         // let searchTerm = allLinks[indexPath.row]
         let searchTerm = sortedLinks[indexPath.row]
@@ -115,7 +117,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // I will save the data and read it in PhotoViewController!
         defaults.setObject(searchURL,  forKey: "SearchURL")
         defaults.setObject(searchTerm, forKey: "SearchTerm")
-        
+        print( "SAVED LAST SEARCH INFO" )
         // test to see if the last search terms were really saved
         // if so enable the last search button
         let newSearchURL  = defaults.stringForKey("SearchURL")
@@ -130,4 +132,20 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // print( searchTerm )
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        print( "Starting SEGUE" )
+        if (segue.identifier == "CellSearchSegue") {
+            print( "CELL SELECTED SEGUE" )
+            let selectedRow = self.tableView.indexPathForSelectedRow?.row
+            valueToPass = sortedLinks[selectedRow!]
+            let nextController = segue.destinationViewController as! PhotoViewController
+            nextController.valuePassed = valueToPass
+        }
+        if  (segue.identifier == "LastSearchSegue") {
+            print( "LAST SELECTED SEGUE" )
+            valueToPass = defaults.stringForKey("SearchTerm")
+            let nextController = segue.destinationViewController as! PhotoViewController
+            nextController.valuePassed = valueToPass
+        }
+    }
 }

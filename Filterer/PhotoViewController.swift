@@ -37,9 +37,8 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             // use passed data
             print( "USING PASSED VALUES" )
-            searchURL = valuePassed!
-            searchURL  = "https://api.flickr.com/services/feeds/photos_public.gne?" +
-                searchTerm! + "&format=json&nojsoncallback=1"
+            searchTerm = valuePassed!
+            searchURL  = "https://api.flickr.com/services/feeds/photos_public.gne?" + searchTerm! + "&format=json&nojsoncallback=1"
         }
         print( "SEARCH TERM " + searchTerm! )
         print( "SEARCH URL "  + searchURL! )
