@@ -10,23 +10,30 @@ import UIKit
 
 class PhotoInspectViewController: UIViewController {
 
-    var passedValue: String?
-    var inspectImage = UIImage( named: "landscape" )!
+    // var passedValue: String?
+    var passedImage: UIImage?
+    var inspectImage: UIImage?
+
+    var defaultImage = UIImage( named: "landscape" )!
     
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print( "PHOTO INSPECTOR CONTROLLER" )
-        if passedValue != nil {
-            print( "PASSED VALUE " + passedValue! )
+        if passedImage == nil {
+            print( "PASSED Image = NIL" )
+            print( "using Defaults" )
+            // passedValue  = "landscape"
+            inspectImage = defaultImage
         } else {
-            print( "PASSED VALUE = NIL" )
-            passedValue = "landscape"
+            // print( "PASSED IMAGE " + passedValue! )
+            print( "PASSED IMAGE" )
+            inspectImage = passedImage
         }
         // passedValue = "sample"
         // passedValue = "landscape"
-        inspectImage = UIImage( named: passedValue! )!
+        // inspectImage = UIImage( named: passedValue! )!
         imageView.image = inspectImage
     }
 

@@ -19,6 +19,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     var searchURL:   String?
     var searchTerm:  String?
     var valueToPass: String!
+    var imageToPass: UIImage!
     var valuePassed: String?
     
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -80,11 +81,12 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     // http://stackoverflow.com/questions/28430663/send-data-from-tableview-to-detailview-swift
     
     // delegate methods
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        // save the new array
-        let selectedImage = images[indexPath.row]
-        //NSUserDefaults.standardUserDefaults().setObject(selectedImage, forKey: "DefaultImage")
-        valueToPass = selectedImage
-        print( "image selected to pass " + valueToPass )
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        valueToPass = images[indexPath.row]
+        print( "SELECTED IMAGE " + valueToPass )
+        // NSUserDefaults.standardUserDefaults().setObject(selectedImage, forKey: "DefaultImage")
+        // valueToPass = selectedImage
+        imageToPass = UIImage( named: images[indexPath.row] )
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
@@ -93,11 +95,13 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             print( "Inspect Image Segue" )
             let selectedRow = self.tableView.indexPathForSelectedRow?.row
             let valueToPass = images[selectedRow!]
+            let imageToPass = UIImage( named: images[selectedRow!] )
             print( "PASSING VALUE -- " + valueToPass )
             // store the new default value
             // initialize new view controller and cast it as your view controller
             let nextController = segue.destinationViewController as! PhotoInspectViewController
-            nextController.passedValue = valueToPass
+            // nextController.passedValue  = valueToPass
+            nextController.passedImage = imageToPass
         }
     }
 }
