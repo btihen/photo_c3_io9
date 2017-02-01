@@ -16,14 +16,32 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         "landscape"
     ]
     
-    var valueToPass:String!
+    var searchURL:   String?
+    var searchTerm:  String?
+    var valueToPass: String!
+    var valuePassed: String?
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print( "FLICKR PHOTO CONTROLLER" )
-
+        if valuePassed == nil {
+            // use last search info
+            print( "USING STORED VALUES" )
+            searchURL  = defaults.stringForKey("SearchURL")!
+            searchTerm = defaults.stringForKey("SearchTerm")!
+        } else {
+            // use passed data
+            print( "USING PASSED VALUES" )
+            searchURL = valuePassed!
+            searchURL  = "https://api.flickr.com/services/feeds/photos_public.gne?" +
+                searchTerm! + "&format=json&nojsoncallback=1"
+        }
+        print( "SEARCH TERM " + searchTerm! )
+        print( "SEARCH URL "  + searchURL! )
         tableView.delegate     = self
         tableView.dataSource   = self
     }
@@ -67,9 +85,6 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         //NSUserDefaults.standardUserDefaults().setObject(selectedImage, forKey: "DefaultImage")
         valueToPass = selectedImage
         print( "image selected to pass " + valueToPass )
-        // had to disable this since segue was calling this (doesn't like two calls)
-        // http://stackoverflow.com/questions/11862883/whose-view-is-not-in-the-window-hierarchy
-        // performSegueWithIdentifier("InspectImage", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
