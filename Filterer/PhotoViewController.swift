@@ -19,9 +19,11 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var urlString:   String?
     var searchTerm:  String?
+    var valuePassed: String?
+    
     var valueToPass: String!
     var imageToPass: UIImage!
-    var valuePassed: String?
+    var feedItemToPass: FeedItem!
     
     // FLICKR FEED (html) CODE
     var feed: Feed? {
@@ -164,6 +166,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             // NEW CODE Flickr Feed
             let item = self.feed!.items[selectedRow!]
+            feedItemToPass = item
             valueToPass = item.title
             let imageURL = self.feed!.items[selectedRow!].imageURL
             print( "IMAGE URL " )
@@ -175,6 +178,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             // initialize new view controller and cast it as your view controller
             let nextController = segue.destinationViewController as! PhotoInspectViewController
             nextController.passedImage = imageToPass
+            nextController.passedFeedItem = feedItemToPass
         }
     }
 }

@@ -13,6 +13,7 @@ class PhotoInspectViewController: UIViewController {
     // var passedValue: String?
     var passedImage: UIImage?
     var inspectImage: UIImage?
+    var passedFeedItem: FeedItem?
 
     var defaultImage = UIImage( named: "landscape" )!
     
@@ -30,6 +31,13 @@ class PhotoInspectViewController: UIViewController {
             // print( "PASSED IMAGE " + passedValue! )
             print( "PASSED IMAGE" )
             inspectImage = passedImage
+        }
+        if passedFeedItem == nil {
+            print( "NO FEED ITEM FOUND" )
+        } else {
+            print( "FEED ITEM FOUND" )
+            print( "IMAGE TITLE: " + passedFeedItem!.title )
+            print( "IMAGE URL: " + passedFeedItem!.imageURLString )
         }
         // passedValue = "sample"
         // passedValue = "landscape"
