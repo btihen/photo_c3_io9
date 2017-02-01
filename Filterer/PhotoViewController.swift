@@ -28,7 +28,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     // FLICKR FEED (html) CODE
     var feed: Feed? {
         didSet {
-            print( "FEED - update Tables" )
+            //print( "FEED - update Tables" )
             self.tableView.reloadData()
         }
     }
@@ -54,19 +54,19 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print( "FLICKR PHOTO CONTROLLER" )
+        //print( "FLICKR PHOTO CONTROLLER" )
         if valuePassed == nil {
             // use last search info
-            print( "USING STORED VALUES" )
+            //print( "USING STORED VALUES" )
             searchTerm = defaults.stringForKey("SearchTerm")!
         } else {
             // use passed data
-            print( "USING PASSED VALUES" )
+            //print( "USING PASSED VALUES" )
             searchTerm = valuePassed!
         }
         urlString  = "https://api.flickr.com/services/feeds/photos_public.gne?tags=" + searchTerm! + "&format=json&nojsoncallback=1"
-        print( "FLICKR SEARCH TERM " + searchTerm! )
-        print( "FLICKR SEARCH URL "  + urlString! )
+        //print( "FLICKR SEARCH TERM " + searchTerm! )
+        //print( "FLICKR SEARCH URL "  + urlString! )
         tableView.delegate     = self
         tableView.dataSource   = self
         
@@ -76,8 +76,8 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func getURL( urlString: String ) {
-        print( "GET URL FUNC" )
-        print( "using URL: " + urlString )
+        //print( "GET URL FUNC" )
+        //print( "using URL: " + urlString )
         
         if let url = NSURL(string: urlString) {
             self.updateFeed(url, completion: { (feed) -> Void in
@@ -88,10 +88,10 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     func updateFeed(url: NSURL, completion: (feed: Feed?) -> Void) {
-        print( "UPDATE FEED" )
+        //print( "UPDATE FEED" )
         let request = NSURLRequest(URL: url)
-        print( " GET URL REQUEST " )
-        print( request )
+        //print( " GET URL REQUEST " )
+        //print( request )
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
             if error == nil && data != nil {
                 let feed = Feed(data: data!, sourceURL: url)
@@ -110,8 +110,8 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return images.count
-        print( "COUNT = " )
-        print( self.feed?.items.count ?? 0 )
+        //print( "COUNT = " )
+        //print( self.feed?.items.count ?? 0 )
         return self.feed?.items.count ?? 0
     }
     
@@ -125,12 +125,12 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         let item = self.feed!.items[indexPath.row]
         // assign text
         cell.textLabel?.text = item.title
-        print( "ASSIGN IMAGE TITLE " + item.title )
+        //print( "ASSIGN IMAGE TITLE " + item.title )
         cell.detailTextLabel?.text = item.imageURLString
-        print( "ASSIGN IMAGE SUB-TITLE " + item.imageURLString )
+        //print( "ASSIGN IMAGE SUB-TITLE " + item.imageURLString )
         
         // ASSIGN IMAGES
-        print( "IMAGE DOWNLOADED and in CELL" )
+        //print( "IMAGE DOWNLOADED and in CELL" )
         let url = NSURL(string: item.imageURLString)
         let data = NSData(contentsOfURL:url!)
         
@@ -166,14 +166,14 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         // need to change for flicker - but good testing
         // imageToPass = cellData.imageView?.image
         
-        print( "SELECTED IMAGE ROW" + valueToPass + " TITLE" )
+        //print( "SELECTED IMAGE ROW" + valueToPass + " TITLE" )
         imageToPass = UIImage( named: "sample" )
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        print( "Segue OVERRIDE" )
+        //print( "Segue OVERRIDE" )
         if (segue.identifier == "InspectImage") {
-            print( "Inspect Image Segue" )
+            //print( "Inspect Image Segue" )
             let selectedRow = self.tableView.indexPathForSelectedRow?.row
             
             // OLD STATIC IMAGES CODE
@@ -184,16 +184,16 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             let item = self.feed!.items[selectedRow!]
             feedItemToPass = item
             valueToPass = item.title
-            let imageURL = self.feed!.items[selectedRow!].imageURL
-            print( "IMAGE URL " )
-            print( imageURL )
+            //let imageURL = self.feed!.items[selectedRow!].imageURL
+            //print( "IMAGE URL " )
+            //print( imageURL )
             // need to change for flicker - but good testing
-            imageToPass = UIImage( named: "sample" )
+            //imageToPass = UIImage( named: "sample" )
             
-            print( "SEGUE PASSING VALUE -- " + valueToPass + "Title" )
+            //print( "SEGUE PASSING VALUE -- " + valueToPass + "Title" )
             // initialize new view controller and cast it as your view controller
             let nextController = segue.destinationViewController as! PhotoInspectViewController
-            nextController.passedImage = imageToPass
+            //nextController.passedImage = imageToPass
             nextController.passedFeedItem = feedItemToPass
         }
     }

@@ -28,7 +28,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        print( "TABLE VIEW CONTROLLER" ) 
+        //print( "TABLE VIEW CONTROLLER" )
         // diable the last search button if there is no last searched terms
         searchURL  = NSUserDefaults.standardUserDefaults().stringForKey("SearchURL")
         searchTerm = NSUserDefaults.standardUserDefaults().stringForKey("SearchTerm")
@@ -44,7 +44,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     @IBAction func onAddButton(sender: UIButton) {
         if termTextField.text!.isEmpty {
-            print("empty")
+            //print("empty")
         } else {
             let inputTerm = termTextField.text!
             // lowercase the string -- need foundation
@@ -98,7 +98,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // allLinks = ["Built-in Images"]
         // allLinks += sortedLinks
         // allLinks = sortedLinks
-        print( sortedLinks )
+        //print( sortedLinks )
         let cell = tableView.dequeueReusableCellWithIdentifier("LinkCell", forIndexPath: indexPath )
         // populate cell
         cell.textLabel?.text = sortedLinks[indexPath.row]
@@ -108,7 +108,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // delegate methods
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print( "ROW SELECTED" )
+        //print( "ROW SELECTED" )
         // save the new array
         // let searchTerm = allLinks[indexPath.row]
         let searchTerm = sortedLinks[indexPath.row]
@@ -117,7 +117,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // I will save the data and read it in PhotoViewController!
         defaults.setObject(searchURL,  forKey: "SearchURL")
         defaults.setObject(searchTerm, forKey: "SearchTerm")
-        print( "SAVED LAST SEARCH INFO" )
+        //print( "SAVED LAST SEARCH INFO" )
         // test to see if the last search terms were really saved
         // if so enable the last search button
         let newSearchURL  = defaults.stringForKey("SearchURL")
@@ -133,16 +133,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        print( "Starting SEGUE" )
+        //print( "Starting SEGUE" )
         if (segue.identifier == "CellSearchSegue") {
-            print( "CELL SELECTED SEGUE" )
+            //print( "CELL SELECTED SEGUE" )
             let selectedRow = self.tableView.indexPathForSelectedRow?.row
             valueToPass = sortedLinks[selectedRow!]
             let nextController = segue.destinationViewController as! PhotoViewController
             nextController.valuePassed = valueToPass
         }
         if  (segue.identifier == "LastSearchSegue") {
-            print( "LAST SELECTED SEGUE" )
+            //print( "LAST SELECTED SEGUE" )
             valueToPass = defaults.stringForKey("SearchTerm")
             let nextController = segue.destinationViewController as! PhotoViewController
             nextController.valuePassed = valueToPass

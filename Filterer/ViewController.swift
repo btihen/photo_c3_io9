@@ -68,17 +68,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // image load logic
         if passedValue == nil || passedValue == "" {
-            print( "NO PASSED VALUE -- try stored value" )
+            //print( "NO PASSED VALUE -- try stored value" )
             storedPhoto = NSUserDefaults.standardUserDefaults().stringForKey("DefaultImage")
             if storedPhoto == nil || storedPhoto == "" {
-                print( "NO STORED PHOTO using startup default -- landscape" )
+                //print( "NO STORED PHOTO using startup default -- landscape" )
                 originalImage = UIImage( named: "landscape" )!
             } else {
-                print( "LOAD STORED VALUE -- " + storedPhoto! )
+                //print( "LOAD STORED VALUE -- " + storedPhoto! )
                 originalImage = UIImage( named: storedPhoto! )!
             }
         } else {
-            print( "LOAD PASSED VALUE -- " + passedValue! )
+            //print( "LOAD PASSED VALUE -- " + passedValue! )
             originalImage = UIImage( named: passedValue! )!
         }
         
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // on app load - disable compare button since there is no filtered image yet
         compareButton.enabled = false
         
-        print( "IMAGE VIEW CONTROLLER" )
+        //print( "IMAGE VIEW CONTROLLER" )
     }
     
     // override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -151,7 +151,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // trick is to make sure the image view can see gestures!
     @IBAction func onImagePress(sender: AnyObject) {
-        print("Long tap")
+        //print("Long tap")
         if compareButton.enabled == true {
             if sender.state == .Ended {
                 //print("touches ended view")

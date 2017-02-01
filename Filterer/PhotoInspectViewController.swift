@@ -11,11 +11,13 @@ import UIKit
 class PhotoInspectViewController: UIViewController {
 
     // var passedValue: String?
-    var passedImage: UIImage?
+    //var passedImage: UIImage?
+    var inspectURL: String?
+    var inspectTitle: String?
     var inspectImage: UIImage?
     var passedFeedItem: FeedItem?
 
-    var defaultImage = UIImage( named: "landscape" )!
+    let defaultImage = UIImage( named: "landscape" )!
     
     @IBOutlet weak var photoURL: UILabel!
     @IBOutlet weak var photoTitle: UILabel!
@@ -23,42 +25,43 @@ class PhotoInspectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print( "PHOTO INSPECTOR CONTROLLER" )
-        if passedImage == nil {
-            print( "PASSED Image = NIL" )
-            print( "using Defaults" )
+        //print( "PHOTO INSPECTOR CONTROLLER" )
+        //if passedImage == nil {
+            //print( "PASSED Image = NIL" )
+            //print( "using Defaults" )
             // passedValue  = "landscape"
+            //inspectImage = defaultImage
+        //} else {
+            // print( "PASSED IMAGE " + passedValue! )
+            //print( "PASSED IMAGE" )
+            //inspectImage = passedImage
+        //}
+        if passedFeedItem == nil {
+            //print( "NO FEED ITEM FOUND" )
+            inspectTitle = "no image found"
+            inspectURL   = "no URL"
             inspectImage = defaultImage
         } else {
-            // print( "PASSED IMAGE " + passedValue! )
-            print( "PASSED IMAGE" )
-            inspectImage = passedImage
+            //print( "FEED ITEM FOUND" )
+            //print( "IMAGE TITLE: " + passedFeedItem!.title )
+            //print( "IMAGE URL: " + passedFeedItem!.imageURLString )            
+            inspectTitle = passedFeedItem!.title
+            inspectURL   = passedFeedItem!.imageURLString
+            let url = NSURL(string: passedFeedItem!.imageURLString)
+            let data = NSData(contentsOfURL:url!)
+            
+            // It is the best way to manage nil issue.
+            if data!.length > 0 {
+                inspectImage = UIImage(data:data!)
+            } else {
+                // when data is nil or empty default image
+                inspectImage = defaultImage
+            }
         }
-        if passedFeedItem == nil {
-            print( "NO FEED ITEM FOUND" )
-        } else {
-            print( "FEED ITEM FOUND" )
-            print( "IMAGE TITLE: " + passedFeedItem!.title )
-            print( "IMAGE URL: " + passedFeedItem!.imageURLString )
-        }
-        // passedValue = "sample"
-        // passedValue = "landscape"
-        // inspectImage = UIImage( named: passedValue! )!
-        //imageView.image = inspectImage
+        imageView.image = inspectImage
+        photoTitle.text = inspectTitle
+        photoURL.text   = inspectURL
 
-        photoTitle.text = passedFeedItem!.title
-        photoURL.text   = passedFeedItem!.imageURLString
-        
-        let url = NSURL(string: passedFeedItem!.imageURLString)
-        let data = NSData(contentsOfURL:url!)
-        
-        // It is the best way to manage nil issue.
-        if data!.length > 0 {
-            imageView.image = UIImage(data:data!)
-        } else {
-            // In this when data is nil or empty then we can assign a placeholder image
-            imageView.image = inspectImage
-        }
     }
 
     @IBAction func onSave(sender: UIBarButtonItem) {
@@ -80,5 +83,4 @@ class PhotoInspectViewController: UIViewController {
             presentViewController(ac, animated: true, completion: nil)
         }
     }
-
 }

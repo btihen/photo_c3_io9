@@ -11,8 +11,7 @@ import UIKit
 class StartPhotoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let builtInImages = [
-        "sample",
-        "scenery",
+        "gesar",
         "landscape"
     ]
     
@@ -31,7 +30,7 @@ class StartPhotoViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate     = self
         tableView.dataSource   = self
         
-        print( "NEW START PHOTO CONTROLLER")
+        //print( "NEW START PHOTO CONTROLLER")
         // if searchTerm != nil && searchURL != nil {
         //    print( searchTerm! )
         //    print( searchURL! )
@@ -66,7 +65,7 @@ class StartPhotoViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // save the new array
         let selectedImage = builtInImages[indexPath.row]
-        print( "IMAGE SELECTED for Transition -- " + selectedImage )
+        //print( "IMAGE SELECTED for Transition -- " + selectedImage )
         NSUserDefaults.standardUserDefaults().setObject(selectedImage, forKey: "DefaultImage")
         valueToPass = selectedImage
         
@@ -76,11 +75,11 @@ class StartPhotoViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        print( "Segue OVERRIDE" )
+        //print( "Segue OVERRIDE" )
         if (segue.identifier == "LoadNewDefaultImage") {
             let selectedRow = self.tableView.indexPathForSelectedRow?.row
             let valueToPass = builtInImages[selectedRow!]
-            print( "PASSING VALUE -- " + valueToPass )
+            //print( "PASSING VALUE -- " + valueToPass )
             // store the new default value
             NSUserDefaults.standardUserDefaults().setObject(valueToPass, forKey: "DefaultImage")
             // initialize new view controller and cast it as your view controller
