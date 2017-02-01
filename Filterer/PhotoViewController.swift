@@ -124,10 +124,36 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         // assign text
         cell.textLabel?.text = item.title
         cell.detailTextLabel?.text = item.imageURLString
-        // while using text will just send this image (image is ALWAYS NEED FOR SEGUES!)
-        cell.imageView?.image = UIImage( named: "sample" )
         
-        // add flickr images soon
+        // ASSIGN IMAGES
+        // while using text will just send this image (image is ALWAYS NEED FOR SEGUES!)
+        // cell.imageView?.image = UIImage( named: "sample" )
+        
+        // download flickr image for cell WHEN NEEDED - less RAM
+        // get url request - method, access passwords, etc
+        let request = NSURLRequest(URL: item.imageURL)
+        // actually go get the info needed with 
+        //   self.urlSession.dataTaskWithRequest(request)
+        //   get back from block DATA, server response, and any errors
+        var dataTask: NSURLSessionDataTask?
+        dataTask = self.urlSession.dataTaskWithRequest(request) {
+            (data, response, error) -> Void in
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    // always call queue on main thread mainQueue()
+                    if error == nil && data != nil {
+                        // if to check to see if we have no errors
+                        // and check that we have data returned
+                        let imageToPass = UIImage(data: data!)
+                        
+                        //cell.itemImageView.image = image
+                        cell.imageView?.image = imageToPass
+                        // imageToPass = image
+                    }
+                })
+        }
+        // only actually download when calling RESUME!
+        dataTask?.resume()
+        cell.imageView?.image = imageToPass
         
         return cell
     }
@@ -148,7 +174,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cellData = self.feed!.items[indexPath.row]
         valueToPass = cellData.title
         // need to change for flicker - but good testing
-        //imageToPass = cellData.imageView?.image
+        // imageToPass = cellData.imageView?.image
         
         print( "SELECTED IMAGE ROW" + valueToPass + " TITLE" )
         imageToPass = UIImage( named: "sample" )
