@@ -259,11 +259,11 @@
             </objects>
             <point key="canvasLocation" x="388" y="329"/>
         </scene>
-        <!--flickr feed-->
+        <!--Search Flickr-->
         <scene sceneID="nlN-Uz-dfZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TbF-oU-TLv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="flickr feed" image="ic_collections" id="0WI-lC-ihH"/>
+                    <tabBarItem key="tabBarItem" title="Search Flickr" image="ic_collections" id="0WI-lC-ihH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lgA-V6-XL1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -353,9 +353,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="TbF-oU-TLv" kind="relationship" relationship="viewControllers" id="aMw-KQ-sib"/>
                         <segue destination="KVu-Tk-TrG" kind="relationship" relationship="viewControllers" id="38X-a3-dWl"/>
                         <segue destination="V7I-6U-CBd" kind="relationship" relationship="viewControllers" id="HR6-Kw-sOf"/>
-                        <segue destination="TbF-oU-TLv" kind="relationship" relationship="viewControllers" id="aMw-KQ-sib"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL2-13-50n" userLabel="First Responder" sceneMemberID="firstResponder"/>
