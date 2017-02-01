@@ -55,7 +55,8 @@ class Feed {
                 continue
             }
             let title = itemDict["title"] as? String
-            newItems.append(FeedItem(title: title ?? "(no title)", imageURL: url))
+            
+            newItems.append( FeedItem(title: title ?? "(no title)", imageURL: url, imageURLString: urlString) )
         }
         self.init(items: newItems, sourceURL: url)
     }

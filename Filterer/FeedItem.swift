@@ -10,4 +10,5 @@ import Foundation
 struct FeedItem {
     let title: String
     let imageURL: NSURL
+    let imageURLString: String
 }

@@ -121,6 +121,7 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         let item = self.feed!.items[indexPath.row]
         // assign text
         cell.textLabel?.text = item.title
+        cell.detailTextLabel?.text = item.imageURLString
         // while using text will just send this image (image is ALWAYS NEED FOR SEGUES!)
         cell.imageView?.image = UIImage( named: "sample" )
         
