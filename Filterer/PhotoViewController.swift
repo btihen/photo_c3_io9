@@ -164,6 +164,9 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             // NEW CODE Flickr Feed
             let item = self.feed!.items[selectedRow!]
             valueToPass = item.title
+            let imageURL = self.feed!.items[selectedRow!].imageURL
+            print( "IMAGE URL " )
+            print( imageURL )
             // need to change for flicker - but good testing
             imageToPass = UIImage( named: "sample" )
             
