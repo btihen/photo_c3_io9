@@ -47,6 +47,17 @@ class PhotoInspectViewController: UIViewController {
         photoTitle.text = passedFeedItem!.title
         imageView.image = inspectImage
         photoURL.text   = passedFeedItem!.imageURLString
+        
+        let url = NSURL(string: passedFeedItem!.imageURLString)
+        let data = NSData(contentsOfURL:url!)
+        
+        // It is the best way to manage nil issue.
+        if data!.length > 0 {
+            imageView.image = UIImage(data:data!)
+        } else {
+            // In this when data is nil or empty then we can assign a placeholder image
+            imageView.image = inspectImage
+        }
     }
 
     @IBAction func onSave(sender: UIBarButtonItem) {
