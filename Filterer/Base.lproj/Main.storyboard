@@ -655,11 +655,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-oB-O4z">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rhs-gJ-i9K">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                            </imageView>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcs-MZ-Bfp">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="k1e-e1-PGW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-oB-O4z">
+                                        <rect key="frame" x="0.0" y="35" width="600" height="431"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="url" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E65-nk-YJx">
+                                        <rect key="frame" x="0.0" y="466" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="O7O-oB-O4z" firstAttribute="top" secondItem="wcs-MZ-Bfp" secondAttribute="bottom" id="9of-Jv-77t"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7O-oB-O4z" secondAttribute="trailing" id="Ctz-wi-o1P"/>
+                                    <constraint firstAttribute="trailing" secondItem="E65-nk-YJx" secondAttribute="trailing" id="Ff0-uq-z47"/>
+                                    <constraint firstItem="E65-nk-YJx" firstAttribute="top" secondItem="O7O-oB-O4z" secondAttribute="bottom" id="J3d-fg-bKd"/>
+                                    <constraint firstItem="O7O-oB-O4z" firstAttribute="leading" secondItem="rhs-gJ-i9K" secondAttribute="leading" id="KyZ-xZ-z6c"/>
+                                    <constraint firstItem="wcs-MZ-Bfp" firstAttribute="top" secondItem="rhs-gJ-i9K" secondAttribute="top" id="NgP-NR-faf"/>
+                                    <constraint firstAttribute="trailing" secondItem="wcs-MZ-Bfp" secondAttribute="trailing" id="UYb-aj-0HH"/>
+                                    <constraint firstItem="E65-nk-YJx" firstAttribute="leading" secondItem="rhs-gJ-i9K" secondAttribute="leading" id="ioE-uM-gvq"/>
+                                    <constraint firstItem="wcs-MZ-Bfp" firstAttribute="leading" secondItem="rhs-gJ-i9K" secondAttribute="leading" id="jdF-JQ-MTB"/>
+                                    <constraint firstAttribute="bottom" secondItem="E65-nk-YJx" secondAttribute="bottom" id="mPd-6o-b0O"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rhs-gJ-i9K" secondAttribute="trailing" id="PcA-QG-gkU"/>
+                            <constraint firstItem="rhs-gJ-i9K" firstAttribute="top" secondItem="ooO-fM-P5q" secondAttribute="bottom" id="eDF-S2-UNC"/>
+                            <constraint firstItem="rhs-gJ-i9K" firstAttribute="leading" secondItem="2pe-c4-Y8O" secondAttribute="leading" id="gIO-lV-Nfe"/>
+                            <constraint firstItem="dRt-QW-Qr5" firstAttribute="top" secondItem="rhs-gJ-i9K" secondAttribute="bottom" id="y6w-RP-een"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Image Inspect" id="0x1-rc-eXe">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="uPl-X3-4II">
@@ -670,6 +708,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="O7O-oB-O4z" id="sU8-TN-Tar"/>
+                        <outlet property="photoTitle" destination="wcs-MZ-Bfp" id="sJZ-3e-cbn"/>
+                        <outlet property="photoURL" destination="E65-nk-YJx" id="WXZ-Z7-D6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tp7-gI-OPd" userLabel="First Responder" sceneMemberID="firstResponder"/>

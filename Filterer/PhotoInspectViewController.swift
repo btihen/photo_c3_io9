@@ -17,6 +17,8 @@ class PhotoInspectViewController: UIViewController {
 
     var defaultImage = UIImage( named: "landscape" )!
     
+    @IBOutlet weak var photoURL: UILabel!
+    @IBOutlet weak var photoTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -42,7 +44,9 @@ class PhotoInspectViewController: UIViewController {
         // passedValue = "sample"
         // passedValue = "landscape"
         // inspectImage = UIImage( named: passedValue! )!
+        photoTitle.text = passedFeedItem!.title
         imageView.image = inspectImage
+        photoURL.text   = passedFeedItem!.imageURLString
     }
 
     @IBAction func onSave(sender: UIBarButtonItem) {
