@@ -70,6 +70,8 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate     = self
         tableView.dataSource   = self
         
+        self.title = "Flickr: " + searchTerm!
+        
         getURL( urlString! )
     }
 
@@ -123,7 +125,9 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
         let item = self.feed!.items[indexPath.row]
         // assign text
         cell.textLabel?.text = item.title
+        print( "ASSIGN IMAGE TITLE " + item.title )
         cell.detailTextLabel?.text = item.imageURLString
+        print( "ASSIGN IMAGE SUB-TITLE " + item.imageURLString )
         
         // ASSIGN IMAGES
         // while using text will just send this image (image is ALWAYS NEED FOR SEGUES!)
@@ -140,20 +144,25 @@ class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewD
             (data, response, error) -> Void in
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     // always call queue on main thread mainQueue()
+                    print( "IN SIDE THREAD - getting answer" )
                     if error == nil && data != nil {
+                        print( "GOT IMAGE - no errors" )
                         // if to check to see if we have no errors
                         // and check that we have data returned
-                        let imageToPass = UIImage(data: data!)
-                        
+                        self.imageToPass = UIImage(data: data!)
+                        print( "ASSIGNED to IMAGE TO PASS" )
                         //cell.itemImageView.image = image
-                        cell.imageView?.image = imageToPass
+                        cell.imageView?.image = UIImage(data: data!)
+                        print( "ASSIGNED TO IMAGE CELL" )
                         // imageToPass = image
                     }
                 })
         }
         // only actually download when calling RESUME!
+        print( "CALL for IMAGE DOWNLOAD" )
         dataTask?.resume()
-        cell.imageView?.image = imageToPass
+        print( "IMAGE DOWNLOADED and in CELL" )
+        // cell.imageView?.image = imageToPass
         
         return cell
     }
